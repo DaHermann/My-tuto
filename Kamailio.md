@@ -1,30 +1,11 @@
 # Comment installer kamailio sur Ubuntu 18.04 | 16.04
-
-### Etape 1: installer apache2 http
-
-  Tapez les cmd pour faire une mise à jours de vos package et l'installation d'apache2
-  
-    sudo apt update 
-    sudo apt install apache2
-
-  Après l'installation d'apache tapez les commandes suivantes pour rendre disponible de server apache:
-  
-    sudo systemctl stop apache2.service 
-    sudo systemctl start apache2.service 
-    sudo systemctl enable apache2.service
-  
-  Vous pouvez verifier que apache2 est bien disponible en faisant dans votre navigateur:
-  
-  `http://localhost`
-  vous verez la page d'acceuil d'apache s'afficher.
   
   
-  
-  ### Etape 2:  installer Mariadb Serveur (c'est une base de donnée mysql)
+  ### Etape 1:  installer Mariadb Serveur (c'est une base de donnée mysql)
   
   Pour installer Mariadb lancez la cmd suivante :  
   
-  ` sudo apt install mariadb-server mariadb-client `
+     sudo apt install mariadb-server mariadb-client
 
   Puis lancer ces cmd :
   
@@ -49,27 +30,93 @@
   
   Maintenant testez une connexion mysql :
 
-    ` sudo mysql -u root -p `
+     sudo mysql -u root -p
     
 
-  ### Etape 2: Installer PHP7.2 et ses Modules 
+  ### Etape 2: Télécharger et configurer la dernière version de Kamailio
   
-  Lancez les commandes suivantes pour ajouter le référentiel tiers ci-dessous pour mettre à niveau vers PHP 7.2
-  
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:ondrej/php
     
- Puis mettez à jour vers PHP 7.2
- 
+   * Mettez à jour les packages d'ubuntu et install kamailio
+   
     sudo apt update
+    sudo apt install kamailio kamailio-mysql-modules kamailio-websocket-modules
+    
+    
+   Affichez la version de kamailio en faisant:
+   
+      kamailio -V
+      
+      
+  ### Etape 3: Configurer Kamailio
+  
+    
+   Ouvrez les fichiers de configuratiion par defaut de kamailio 
+          Tapez la cmd : 
+          
+    sudo nano /etc/kamailio/kamctlrc
+   
+   Puis decommentez **SIP_DOMAIN** et **DBENGINE**
+   
+    # The Kamailio configuration file for the control tools.
+    #
+    ## your SIP domain
+     SIP_DOMAIN=kamailio.example.com
+    ## chrooted directory
+    #
+    # If you want to setup a database with kamdbctl, you must at least specify
+    # this parameter.
+     DBENGINE=MYSQL
+    ## database host
+    ## database read only user
+    
+   Apres le changement, enregistrer le fichier et creer la base de donnée de kamailio en tapant:
+   
+    kamdbctl create
 
-Ensuite installez les Modules de PHP7.2
+  
+  Si vous obtenez **accès refusé pour root@localhost**, suivez les étapes ci-dessous pour résoudre
+  
+  * Connectez-vous au serveur MariaDB en exécutant les commandes ci-dessous.
+                              
+        sudo mysql -u root
+  
+  
+  * Cela devrait vous permettre d'accéder au serveur de base de données. 
+    Après cela, exécutez les commandes ci-dessous pour désactiver l'authentification du plugin pour l'utilisateur root.
     
-    sudo apt install php7.2 libapache2-mod-php7.2 php7.2-common php7.2-gmp php7.2-curl 
-    php7.2-intl php7.2-mbstring php7.2-xmlrpc php7.2-mysql php7.2-gd php7.2-imagick php-pear 
-    php7.2-xml php7.2-cli php7.2-zip php7.2-sqlite
+        use mysql;
+        update user set plugin='' where User='root';
+        flush privileges;
+        exit
+        
+  * Redémarrez et exécutez les commandes ci-dessous pour définir un nouveau mot de passe.
+  
+        sudo systemctl restart mariadb.service
+
+  **Maintenant relancez la cmd ` kamdbctl create ` pour creer la base de donnée kamailio  et un utilisateur**
+  
     
- 
+    
+  Lorsque vous y êtes invité, répondez avec les paramètres ci-dessous:
+
+    Enter character set name: 
+    latin1
+    INFO: creating database kamailio ...
+    INFO: granting privileges to database kamailio ...
+    INFO: creating standard tables into kamailio ...
+    INFO: Core Kamailio tables succesfully created.
+    Install presence related tables? (y/n): y
+    INFO: creating presence tables into kamailio ...
+    INFO: Presence tables succesfully created.
+    Install tables for imc cpl siptrace domainpolicy carrierroute
+        drouting userblacklist htable purple uac pipelimit mtree sca mohqueue
+        rtpproxy rtpengine? (y/n): y
+    INFO: creating extra tables into kamailio ...
+    INFO: Extra tables succesfully created.
+    Install tables for uid_auth_db uid_avp_db uid_domain uid_gflags
+        uid_uri_db? (y/n): y
+    INFO: creating uid tables into kamailio ...
+    INFO: UID tables succesfully created.
       
 
 
