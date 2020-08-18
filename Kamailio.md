@@ -53,27 +53,27 @@
    Ouvrez les fichiers de configuratiion par defaut de kamailio 
           Tapez la cmd : 
           
-    sudo nano /etc/kamailio/kamctlrc
+      sudo nano /etc/kamailio/kamctlrc
    
    Puis decommentez **SIP_DOMAIN** et **DBENGINE**
    
-    # The Kamailio configuration file for the control tools.
-    #
-    ## your SIP domain
-     SIP_DOMAIN=kamailio.example.com
-    ## chrooted directory
-    #
-    # If you want to setup a database with kamdbctl, you must at least specify
-    # this parameter.
-     DBENGINE=MYSQL
-    ## database host
-    ## database read only user
+      # The Kamailio configuration file for the control tools.
+      #
+      ## your SIP domain
+       SIP_DOMAIN=kamailio.example.com
+      ## chrooted directory
+      #
+      # If you want to setup a database with kamdbctl, you must at least specify
+      # this parameter.
+       DBENGINE=MYSQL
+      ## database host
+      ## database read only user
     
    Apres le changement, enregistrer le fichier et creer la base de donnée de kamailio en tapant:
    
-    kamdbctl create
+      kamdbctl create
 
-  <div class="bg-blue-light mb-2">
+  
   Si vous obtenez **accès refusé pour root@localhost**, suivez les étapes ci-dessous pour résoudre
   
   * Connectez-vous au serveur MariaDB en exécutant les commandes ci-dessous.
@@ -93,32 +93,31 @@
   
         sudo systemctl restart mariadb.service
 
-  **Maintenant relancez la cmd ` kamdbctl create ` pour creer la base de donnée kamailio  et un utilisateur .**
-  
-  </div>
+
+  * **Maintenant relancez la cmd ` kamdbctl create ` pour creer la base de donnée kamailio  et un utilisateur .**
     
     
   Lorsque vous y êtes invité, répondez avec les paramètres ci-dessous:
 
-    Enter character set name: 
-    latin1
-    INFO: creating database kamailio ...
-    INFO: granting privileges to database kamailio ...
-    INFO: creating standard tables into kamailio ...
-    INFO: Core Kamailio tables succesfully created.
-    Install presence related tables? (y/n): y
-    INFO: creating presence tables into kamailio ...
-    INFO: Presence tables succesfully created.
-    Install tables for imc cpl siptrace domainpolicy carrierroute
-        drouting userblacklist htable purple uac pipelimit mtree sca mohqueue
-        rtpproxy rtpengine? (y/n): y
-    INFO: creating extra tables into kamailio ...
-    INFO: Extra tables succesfully created.
-    Install tables for uid_auth_db uid_avp_db uid_domain uid_gflags
-        uid_uri_db? (y/n): y
-    INFO: creating uid tables into kamailio ...
-    INFO: UID tables succesfully created.
-      
+      Enter character set name: 
+      latin1
+      INFO: creating database kamailio ...
+      INFO: granting privileges to database kamailio ...
+      INFO: creating standard tables into kamailio ...
+      INFO: Core Kamailio tables succesfully created.
+      Install presence related tables? (y/n): y
+      INFO: creating presence tables into kamailio ...
+      INFO: Presence tables succesfully created.
+      Install tables for imc cpl siptrace domainpolicy carrierroute
+          drouting userblacklist htable purple uac pipelimit mtree sca mohqueue
+          rtpproxy rtpengine? (y/n): y
+      INFO: creating extra tables into kamailio ...
+      INFO: Extra tables succesfully created.
+      Install tables for uid_auth_db uid_avp_db uid_domain uid_gflags
+          uid_uri_db? (y/n): y
+      INFO: creating uid tables into kamailio ...
+      INFO: UID tables succesfully created.
+
 
 
   Ensuite, ouvrez le fichier `/etc/kamailio/kamailio.cfg` en exécutant les commandes ci-dessous:
@@ -135,8 +134,12 @@
   Enregistrez le fichier et quittez.
   
   
+  Pour appliquer vos modifications, exécutez les commandes ci-dessous:
+  
+    sudo systemctl restart kamailio
   
   
+ **FIN D'INSTALLATION **
     
-    
+   *kamailio est près à functionner*
     
