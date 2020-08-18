@@ -1,4 +1,12 @@
+
 # Comment installer kamailio sur Ubuntu 18.04 | 16.04
+  
+  <br/>
+  
+  /////////////////////////// **DEBUT D'INSTALLATION** //////////////////////////
+  
+  
+  <br/>
   
   
   ### Etape 1:  installer Mariadb Serveur (c'est une base de donnée mysql)
@@ -73,6 +81,12 @@
    
       kamdbctl create
 
+ 
+  <br/>
+  
+  //////////////////////////////// **< EN CAS D'ERREUR >** ///////////////////////////////////////////////
+  
+  <br/>
   
   Si vous obtenez **accès refusé pour root@localhost**, suivez les étapes ci-dessous pour résoudre
   
@@ -95,8 +109,11 @@
 
 
   * **Maintenant relancez la cmd ` kamdbctl create ` pour creer la base de donnée kamailio  et un utilisateur .**
-    
-    
+  
+  ///////////////////////////////////// **</ EN CAS D'ERREUR>** ///////////////////////////////
+  
+  <br/>
+     
   Lorsque vous y êtes invité, répondez avec les paramètres ci-dessous:
 
       Enter character set name: 
@@ -138,8 +155,9 @@
   
     sudo systemctl restart kamailio
   
+  <br/>
   
- **FIN D'INSTALLATION **
+ /////////////////////////// **FIN D'INSTALLATION** //////////////////////////
     
    *kamailio est près à functionner*
     
