@@ -73,7 +73,7 @@
    
     kamdbctl create
 
-  
+  <div class="bg-blue-light mb-2">
   Si vous obtenez **accès refusé pour root@localhost**, suivez les étapes ci-dessous pour résoudre
   
   * Connectez-vous au serveur MariaDB en exécutant les commandes ci-dessous.
@@ -93,8 +93,9 @@
   
         sudo systemctl restart mariadb.service
 
-  **Maintenant relancez la cmd ` kamdbctl create ` pour creer la base de donnée kamailio  et un utilisateur**
+  **Maintenant relancez la cmd ` kamdbctl create ` pour creer la base de donnée kamailio  et un utilisateur .**
   
+  </div>
     
     
   Lorsque vous y êtes invité, répondez avec les paramètres ci-dessous:
@@ -120,7 +121,22 @@
       
 
 
+  Ensuite, ouvrez le fichier `/etc/kamailio/kamailio.cfg` en exécutant les commandes ci-dessous:
 
-***show users in kamailio db*** 
-
-`kamctl db show subscriber`
+    sudo nano /etc/kamailio/kamailio.cfg
+    
+  Ajoutez ensuite les lignes ci-dessous après la ligne **#!KAMAILIO**
+  
+    #!define WITH_MYSQL
+    #!define WITH_AUTH
+    #!define WITH_USRLOCDB
+    #!define WITH_ACCDB
+    
+  Enregistrez le fichier et quittez.
+  
+  
+  
+  
+    
+    
+    
