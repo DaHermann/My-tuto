@@ -38,7 +38,7 @@ Installons le avec la cmd suivante:
      apt-get install default-mysql-server
     
 
-## Etape 3: Obtenir Kamailio des sources de GIT
+## Etape 2: Obtenir Kamailio des sources de GIT
 
   * Creer un dossier et se placer à l'interieur de ce dossier
   
@@ -56,7 +56,7 @@ Installons le avec la cmd suivante:
   **NB** : si votre version de client git ne prend pas en charge le paramètre de ligne de commande *--no-single-branch*, supprimez-le simplement.
   
   
-## Etape 4: Reglages des fichiers Make
+## Etape 3: Reglages des fichiers Make
 
   Générer des fichiers de configuration de construction avec la commande suivante:
   
@@ -83,7 +83,7 @@ Installons le avec la cmd suivante:
     make include_modules="db_mysql dialplan" cfg
     
     
-## Etape 5: Compiler Kamailio
+## Etape 4: Compiler Kamailio
 
    Compiler kamailio avec la cmd:
   
@@ -94,7 +94,7 @@ Installons le avec la cmd suivante:
       make Q=0 all
      
 
-## Etape 6: Installer Kamailio
+## Etape 5: Installer Kamailio
 
    Lorsque la compilation est prête, installez Kamailio avec la commande suivante:
   
@@ -139,7 +139,7 @@ Installons le avec la cmd suivante:
         /usr/local/etc/kamailio/kamailio.cfg
         
    
-## Etape 7: Créer une base de données MySQL
+## Etape 6: Créer une base de données MySQL
 
    Pour créer la base de données *MySQL*, vous devez utiliser le script de configuration de la base de données. 
    Modifiez d'abord le fichier kamctlrc pour définir le type de serveur de base de données:
@@ -173,7 +173,7 @@ Installons le avec la cmd suivante:
 
          
          
-## Etape 7: Modifier le fichier de configuration de Kamailio
+## Etape 6: Modifier le fichier de configuration de Kamailio
     
          
          
