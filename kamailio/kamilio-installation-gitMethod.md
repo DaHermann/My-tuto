@@ -2,7 +2,7 @@
 # Installation de Kamailio v5.3
 
 
-### Prerequis
+## Prerequis
 
 Connectez vous en tant que root et install les packages requis pour l'installation de kamailio
 
@@ -27,7 +27,7 @@ Connectez vous en tant que root et install les packages requis pour l'installati
   * **libpcre3-dev**: `apt install libpcre3-dev`
   
   
-### Etape 1: MySQL ou MariaDB Server
+## Etape 1: MySQL ou MariaDB Server
 
 Il est possible d'utiliser **Mysql** ou **Mariadb sever**, dans notre cas nous allons utiliser **Mysql**.
 
@@ -38,7 +38,7 @@ Installons le avec la cmd suivante:
      apt-get install default-mysql-server
     
 
-### Etape 3: Obtenir Kamailio des sources de GIT
+## Etape 3: Obtenir Kamailio des sources de GIT
 
   * Creer un dossier et se placer à l'interieur de ce dossier
   
@@ -56,7 +56,7 @@ Installons le avec la cmd suivante:
   **NB** : si votre version de client git ne prend pas en charge le paramètre de ligne de commande *--no-single-branch*, supprimez-le simplement.
   
   
-### Etape 4: Reglages des fichiers Make
+## Etape 4: Reglages des fichiers Make
 
   Générer des fichiers de configuration de construction avec la commande suivante:
   
@@ -83,7 +83,7 @@ Installons le avec la cmd suivante:
     make include_modules="db_mysql dialplan" cfg
     
     
-### Etape 5: Compiler Kamailio
+## Etape 5: Compiler Kamailio
 
    Compiler kamailio avec la cmd:
   
@@ -94,7 +94,7 @@ Installons le avec la cmd suivante:
       make Q=0 all
      
 
-### Etape 6: Installer Kamailio
+## Etape 6: Installer Kamailio
 
    Lorsque la compilation est prête, installez Kamailio avec la commande suivante:
   
@@ -137,9 +137,44 @@ Installons le avec la cmd suivante:
     Le fichier de configuration a été installé dans:
   
         /usr/local/etc/kamailio/kamailio.cfg
+        
+   
+## Etape 7: Créer une base de données MySQL
+
+   Pour créer la base de données *MySQL*, vous devez utiliser le script de configuration de la base de données. 
+   Modifiez d'abord le fichier kamctlrc pour définir le type de serveur de base de données:
+   
+      nano -w /usr/local/etc/kamailio/kamctlrc
+      
+   Localisez la variable *DBENGINE* et définissez-la sur *MYSQL* :
+    
+    DBENGINE=MYSQL
+    
+   *Vous pouvez changer d'autres valeurs dans le fichier kamctlrc, au moins il est recommandé de changer les mots de passe par défaut pour les utilisateurs à créer    pour se connecter à la base de données.*
+
+  Notez que la ligne existante avec `DBENGINE` ou d'autres attributs peut être commentée, 
+  décommentée en supprimant le caractère `#` au début de la ligne, puis enregistrer et quittez.
+  
+  
+  Exécutez le script pour créer la base de données utilisée par Kamailio:
+  
+     /usr/local/sbin/kamdbctl create
+     
+  Vous pouvez appeler ce script sans aucun paramètre pour obtenir de l'aide pour l'utilisation. Il vous sera demandé le nom de domaine que Kamailio va servir 
+  (par exemple, monServeurSip.com) et le mot de passe de l'utilisateur `root` de MySQL. Le script créera une base de données nommée `kamailio` 
+  contenant les tables requises par Kamailio. Vous pouvez modifier les paramètres par défaut dans le fichier kamctlrc mentionné ci-dessus.
+  
+  Le script ajoutera deux utilisateurs dans MySQL:
+
+    * kamailio - (mot de passe par défaut *kamailiorw*) - qui a les droits d'accès complets à la base de données kamailio
+    * kamailioro - (mot de passe par défaut *kamailioro*) - qui a des droits d'accès en lecture seule à la base de données kamailio
+
+  **IMPORTANT : modifiez les mots de passe de ces deux utilisateurs en quelque chose de différent des valeurs par défaut fournies avec les sources.**
+
          
          
-         
+## Etape 7: Modifier le fichier de configuration de Kamailio
+    
          
          
          
