@@ -1,4 +1,4 @@
-# Kamailio C'est quoi ?
+# Kamailio, c'est quoi, à quoi sert-il ?
 
 
 Kamailio ® (successeur des anciens OpenSER et SER) est un serveur SIP Open Source publié sous GPL, capable de gérer des milliers de configurations d'appels par seconde. 
