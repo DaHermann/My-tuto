@@ -175,8 +175,117 @@ Installons le avec la cmd suivante:
          
 ## Etape 6: Modifier le fichier de configuration de Kamailio
     
-         
-         
+  Éditez le fichier de configuration de kamailio avec la cmd
+  
+    nano /usr/local/etc/kamailio/kamailio.cfg
+ 
+  Ajoutez les lignes en haut du fichier de configuration juste apres `#!KAMAILIO`, cela va vous permettre d'utiliser `MYSQL`:
+   
+    #!define WITH_MYSQL
+    #!define WITH_AUTH
+    #!define WITH_USRLOCDB
+    
+   *Si vous avez changé le mot de passe de l'utilisateur kamailio de MySQL, vous devez mettre à jour la valeur des paramètres db_url.*
          
     
+    
+## Etape 7: Exécuter Kamailio
   
+  
+  Il existe quelques variantes pour démarrer /arrêter/redémarrer Kamailio, celles recommandées étant via le script `init.d` ou l'unité `systemd`, selon ce que le   système d'exploitation Debian est configuré pour utiliser.
+
+  * **Init.d Script**
+
+    Pour installer le script `init.d`, exécutez-le dans le répertoire du code source de Kamailio:
+    
+        make install-initd-debian
+    Suivez toutes les instructions qui peuvent être imprimées par la commande ci-dessus.  
+   
+    Ensuite, vous pouvez démarrer / arrêter Kamailio à l'aide des commandes suivantes:
+
+        /etc/init.d/kamailio start
+        /etc/init.d/kamailio stop
+
+  * **Systemd Unit**
+   
+    Pour installer l'unité `systemd`, exécutez dans le répertoire de code source Kamailio:
+
+        make install-systemd-debian
+    Suivez toutes les instructions qui peuvent être imprimées par la commande ci-dessus.
+
+    Ensuite, vous pouvez `démarrer/arrêter` Kamailio à l'aide des commandes suivantes:
+    
+        systemctl start kamailio
+        systemctl stop kamailio
+        
+    Vous devrez peut-être éditer edit `/usr/local/etc/kamailio/kamctlrc` et définir les attributs `PID_FILE` et `STARTOPTIONS`.
+    
+      Vous pouvez utiliser ensuite:
+      
+        kamctl start
+        kamctl stop
+
+
+  * **Ligne de commande**
+
+    Kamailio peut être démarré à partir de la ligne de commande en exécutant le binaire avec des paramètres spécifiques. Par exemple:
+
+      - *Démarrer Kamailio*
+       
+            /usr/local/sbin/kamailio -P /var/run/kamailio/kamailio.pid -m 128 -M 12
+
+      - *Arrêter Kamailio*
+
+            killall kamailio
+            # ou
+            kill -TERM $(cat /var/run/kamailio/kamailio.pid)
+
+
+## Etape 8: Kamailio est prêt
+
+  Maintenant, tout est en place. Vous pouvez démarrer le service VoIP, créer de nouveaux comptes et configurer les téléphones.
+
+  Un nouveau compte peut être ajouté à l'aide de l'outil kamctl via:
+  
+      kamctl add username password
+  
+  
+  **Si `SIP_DOMAIN` n'a pas été défini dans le fichier `kamctlrc`, utilisez l'une des options suivantes**
+  
+   - *Exécuter dans le terminal:*
+
+         export SIP_DOMAIN=monserveursip.com
+         kamctl add username password
+   
+  - *Ou éditez `/usr/local/etc/kamailio/kamctlrc` et ajoutez:* 
+   
+         SIP_DOMAIN=monserveursip.com
+         
+  - *ou donnez le nom d'utilisateur avec le domaine dans le paramètre kamctl add ...:
+   
+        kamctl add username@monserveursip.com password
+    
+    
+    **Au lieu de `monserveursip.com`, il faut lui donner le vrai domaine du service SIP ou l'adresse IP de Kamailio.**
+    
+    
+   ### * * Kamailio est Bien fonctionnel vous pouvez enregistrer tous vos utilisateurs et utliser kamailio * *
+
+ 
+  ## Maintenance de Kamailio
+
+    
+   Le processus de maintenance est très simple pour le moment. Vous devez être root et exécuter les commandes suivantes:
+   
+     cd /usr/local/src/kamailio-5.3/kamailio
+     git pull origin
+     make all
+     make install
+     /etc/init.d/kamailio restart
+     
+   
+  Vous avez maintenant la dernière version de Kamailio v5.3.x en cours d'exécution sur votre système.
+  
+  
+  
+  # FIN d'installation
