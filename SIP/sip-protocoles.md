@@ -30,9 +30,49 @@
 
 ## ACK
 
+   
+   Le protocole ACK est utilisé pour faciliter un échange de messages fiable pour les INVITE
+   
+   * L'appelant envoie une INVITE
+   * L'appelé envoie un **200 OK** pour **accepter l'appel**
+   * L'appelant envoie un **ACK** pour indiquer que la prise de contact est terminée et qu'**un appel va être établi**.
+   
+   Si le premier message INVITE comprend une description d'appel SDP, le 200OK inclut le SDP de l'appelé.
 
 
 ## CANCEL
+
+   Le protocole CANCEL permet d'annuler une invitation
+   
+   La demande CANCEL, comme son nom l'indique, est **utilisée pour annuler une demande précédente envoyée par un client**. 
+   Plus précisément, il demande à l'UAS de cesser de traiter la demande et de générer une réponse d'erreur à cette demande. 
+   CANCEL n'a aucun effet sur une demande à laquelle un UAS a déjà donné une réponse finale.
+
+
 ## BYE
 ## REGISTER
 ## OPTIONS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
