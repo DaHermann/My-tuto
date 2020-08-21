@@ -79,7 +79,17 @@
 
 ## OPTIONS
 
+   
+   La méthode SIP OPTIONS permet à un UA d'interroger un autre UA ou un serveur proxy quant à ses capacités. 
+   Cela permet à un client de découvrir des informations sur les méthodes prises en charge, les types de contenu, les extensions, les codecs, etc. 
+   sans «sonner» l'autre partie.
 
+   
+   Par exemple, avant qu'un client insère un champ d'en-tête Require dans un INVITE répertoriant une option dont il n'est pas certain que 
+   l'UAS de destination prend en charge, le client peut interroger l'UAS de destination avec une OPTIONS pour voir 
+   si cette option est renvoyée dans un champ d'en-tête pris en charge.
+
+   Tous les UA DOIVENT prendre en charge la méthode OPTIONS.
 
 
 
