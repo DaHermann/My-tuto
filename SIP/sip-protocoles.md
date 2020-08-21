@@ -48,9 +48,35 @@
    Plus précisément, il demande à l'UAS de cesser de traiter la demande et de générer une réponse d'erreur à cette demande. 
    CANCEL n'a aucun effet sur une demande à laquelle un UAS a déjà donné une réponse finale.
 
+   
+   Pour cette raison, **il est plus utile d'annuler les demandes auxquelles un serveur peut mettre longtemps à répondre**. 
+   Pour cette raison, CANCEL est préférable pour les demandes INVITE, qui peuvent prendre beaucoup de temps pour générer une réponse. 
+   Dans cet usage, un UAS qui reçoit une demande CANCEL pour un INVITE, mais qui n'a pas encore envoyé de réponse finale, «arrêterait de sonner», 
+   puis répondrait à l'INVITE avec une réponse d'erreur spécifique (un **487**).
+
 
 ## BYE
+
+   Le protocole BYE permet de raccrocher une session
+   
+   Il est utilisée pour terminer une session spécifique ou une tentative de session. Dans ce cas, 
+   la session spécifique est celle avec l'UA homologue de l'autre côté du dialogue. Lorsqu'un BYE est reçu dans un dialogue, 
+   toute session associée à ce dialogue DEVRAIT se terminer. Un UA NE DOIT PAS envoyer un BYE en dehors d'un dialogue. 
+   L'UA de l'appelant PEUT envoyer un BYE pour les dialogues confirmés ou les premiers dialogues, et l'UA de l'appelé PEUT envoyer un BYE sur 
+   les dialogues confirmés, mais NE DOIT PAS envoyer un BYE sur les premiers dialogues.
+   
+   
+
 ## REGISTER
+   
+   REGISTER permet d'enregistrer un emplacement auprès d'un serveur d'enregistrement SIP
+   
+   L'enregistrement implique l'envoi d'une demande REGISTER (**demande d'enregistrement, d'inscription**) à un type spécial d'**UAS** 
+   connu sous le nom de **registar**. 
+   Un registar agit en tant que **frontal du service de localisation pour un domaine**, lisant et écrivant des mappages basés sur le contenu des demandes **REGISTER**.
+   Ce service de localisation est ensuite généralement consulté par un serveur proxy qui est responsable du routage des demandes pour ce domaine.
+   
+
 ## OPTIONS
 
 
