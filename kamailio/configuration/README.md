@@ -26,3 +26,6 @@ Directives disponibles:
  * **#!endif** - fin de la région ifdef / ifndef
  * **#!trydef** - ajoute une définition si elle n'est pas déjà définie
  * **#!redefine** - force la redéfinition même si elle est déjà définie
+ <br/>
+
+*le nombre de définitions autorisées est désormais défini sur 256*
