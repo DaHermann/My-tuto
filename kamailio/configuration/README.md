@@ -18,11 +18,11 @@ Contrôlez en style C quelles parties du fichier de configuration sont exécuté
 
 Directives disponibles:
 
- * **#! define NAME - définir un mot-clé**
- * **#! define NAME VALUE - définir un mot-clé avec une valeur**
- * **#! ifdef NAME - vérifie si un mot-clé est défini**
- * **#! ifndef - vérifie si un mot clé n'est pas défini**
- * **#! else - passer à la fausse branche de la région ifdef / ifndef**
- * **#! endif - fin de la région ifdef / ifndef**
- * **#! trydef - ajoute une définition si elle n'est pas déjà définie**
- * **#! redefine - force la redéfinition même si elle est déjà définie**
+ * **#!define NAME** - définir un mot-clé
+ * **#!define NAME VALUE** - définir un mot-clé avec une valeur
+ * **#!ifdef NAME** - vérifie si un mot-clé est défini
+ * **#!ifndef** - vérifie si un mot clé n'est pas défini
+ * **#!else** - passer à la fausse branche de la région ifdef / ifndef
+ * **#!endif** - fin de la région ifdef / ifndef
+ * **#!trydef** - ajoute une définition si elle n'est pas déjà définie
+ * **#!redefine** - force la redéfinition même si elle est déjà définie
