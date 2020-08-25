@@ -28,4 +28,4 @@ Directives disponibles:
  * **#!redefine** - force la redéfinition même si elle est déjà définie
  <br/>
 
-*le nombre de définitions autorisées est désormais défini sur 256*
+*le nombre de définitions autorisées est désormais défini sur **256***
