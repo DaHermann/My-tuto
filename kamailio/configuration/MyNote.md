@@ -328,8 +328,20 @@ La configuration suivante met en œuvre un routage de défaillance pour l'équil
 
 
 
+Dans le bloc request_route, avant le relais, l'index du serveur utilisé est stocké dans $avp(idx) et le failure_route[REROUTE] est joint à la transaction.
+Le $avp(idx) est une variable qui stocke la valeur en mémoire partagée et qui est attachée à la transaction. Sa valeur est disponible à tout moment lors du traitement des messages relatifs à la même transaction. Les AVP sont automatiquement détruits lorsque la transaction est détruite.
+Dans le bloc failure_route, si le code renvoyé est 408 ou 500, l'adresse dans l'URI de la requête est remplacée par l'IP de l'autre serveur. Cette fois, il n'y a pas de bloc failure_route attaché
+avant le relais, ce qui signifie que la réponse du second serveur est envoyée en amont sans aucune tentative de réacheminement.
+Le trafic des appels entrants est autorisé sur la base des conditions src_ip.
 
 
+
+####REMARQUES
+
+À partir d'un fichier de configuration très simple, nous avons construit un équilibrage de charge de base équitable avec la possibilité d'autoriser le trafic en fonction de l'IP source et de faire du réacheminement en cas de défaillance de la destination.
+Le fichier de configuration de Kamailio peut être considéré comme un langage logique pour le routage SIP. Il faut se mettre à la place de Kamailio. Vous recevez un paquet du réseau, vous devez voir quel est le type de paquet, si vous savez déjà où l'envoyer, faites-le immédiatement. Si ce n'est pas le cas, regardez les options dont vous disposez pour l'acheminement.
+Assurez-vous tout d'abord qu'il provient d'un expéditeur de confiance, afin de ne pas envoyer de déchets à des pairs qui vous font confiance. Essayez de l'envoyer via les canaux de communication auxquels vous avez accès, en utilisant l'autre si le premier sélectionné n'a pas réussi à livrer.
+En d'autres termes, Kamailio est le cadre de routage SIP, l'armée fidèle, et vous êtes le cerveau qui contrôle le routage, le commandant suprême.
 
 
 
