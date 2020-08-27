@@ -148,6 +148,94 @@ Chaque processus Kamailio doit stocker des informations sur le dernier serveur u
 Sur la base de la valeur de $var(i), le premier (1.2.3.4) ou le deuxième (2.3.4.5) serveur sera utilisé pour le transfert. A chaque renvoi, le $var(i) est incrémenté puis il est appliqué une opération modulo 2 pour rester dans la plage 0 ou 1.
 La valeur de $var(i) est stockée dans la mémoire privée, elle est donc spécifique à chaque processus Kamailio. Il persiste également lors du traitement de nombreuses demandes SIP, n'étant pas attaché à une demande, mais faisant partie de l'environnement d'exécution.
 
+Cet exemple crée un équilibreur de charge dans chaque processus d'application (rappelez-vous que Kamailio est une application multi-processus). Pour une politique d'équilibrage de charge à tour de rôle au niveau de l'instance Kamailio, l'index du serveur à utiliser doit être conservé dans la mémoire partagée. Étant donné que de nombreux processus peuvent le lire et le mettre à jour, l'accès à l'index doit se faire sous synchronisation mutex (verrou). Voici comment cela peut être fait:
+
+    loadmodule “sl.so”
+    loadmodule “textops.so”
+    loadmodule “pv.so”
+    loadmodule “cfgutils.so” 
+    modparam("pv", "shvset", "i=i:0") 
+    modparam("cfgutils", "lock_set_size", 1) 
+    
+    request_route {
+    
+      if(!is_method(“INVITE”)) { 
+        sl_send_reply(“404”, “Not Found”); 
+        exit;
+      }
+      lock(“balancing”);
+      $shv(i) = ($shv(i) + 1 ) mod 2; $var(x) = $shv(i);
+      unlock(“balancing”);
+      
+      if($var(x)==1) {  
+        rewritehostport(“1.2.3.4”);
+      } else { 
+        rewritehostport(“2.3.4.5”);
+      } 
+      
+      forward();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
