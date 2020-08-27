@@ -98,6 +98,30 @@ Un serveur de redirection est censé envoyer des réponses 3xx avec les adresses
     }
 
 
+Lorsque le code de réponse est 3xx, le module prend les adresses dans l'ensemble de destination et crée les en-têtes Contact. L'ensemble de destination comprend l'URI de la demande et des branches supplémentaires.
+
+Fournir plusieurs choix dans une réponse de redirection peut être fait avec :
+
+    loadmodule “sl.so” 
+    request_route {
+      rewritehostport(“1.2.3.4”);
+      append_branch();
+      rewritehostport(“2.3.4.5”); sl_send_reply(“302”, “Moved Temporarily”);
+    }
+
+La réponse 302 contiendra deux destinations alternatives, aux adresses 1.2.3.4 et 2.3.4.5
+
+
+## ÉQUILIBREUR DE CHARGE ROUND-ROBIN SIMPLE STATELESS
+
+
+La logique de routage suivante est souhaitée:
+
+* acheminer uniquement les demandes INVITE, pour le reste envoyer 404 non trouvé
+* chaque processus Kamailio doit choisir la destination parmi deux adresses IP de manière circulaire
+
+
+
 
 
 
