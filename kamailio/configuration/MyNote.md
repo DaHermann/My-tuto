@@ -112,7 +112,7 @@ Fournir plusieurs choix dans une réponse de redirection peut être fait avec :
 La réponse 302 contiendra deux destinations alternatives, aux adresses 1.2.3.4 et 2.3.4.5
 
 
-## ÉQUILIBREUR DE CHARGE ROUND-ROBIN SIMPLE STATELESS
+## ÉQUILIBREUR DE CHARGE ROUND-ROBIN SIMPLE SANS ÉTAT (STATELESS)
 
 
 La logique de routage suivante est souhaitée:
@@ -177,14 +177,66 @@ Cet exemple crée un équilibreur de charge dans chaque processus d'application 
     }
 
 
+La variable $shv(i) est utilisée pour stocker l'index du dernier serveur utilisé, étant une variable qui stocke sa valeur dans la mémoire partagée et est accessible à toutes les applications.
+Le module Cfgutils a été chargé pour les fonctions lock()/unlock() qui offrent une implémentation mutex pour le fichier de configuration, pour protéger l'accès à $shv(i). Une copie en mémoire privée de la valeur de $shv(i) est effectuée dans la zone protégée, en la stockant dans $var(x). De cette manière la zone de verrouillage protège l'incrémentation de l'index et le clonage de la valeur en mémoire privée, opérations qui sont très rapides. La mise à jour de l'adresse URI de la requête et le transfert peuvent être effectués hors de la zone de verrouillage.
+**Notez que comme cette configuration ne fait pas de routage d'enregistrement, la requête dans la boîte de dialogue ne doit pas passer par notre serveur.**
+
+*Si vous remplacez forward () par sl_send_reply ("302", "Moved Temporarily") dans la configuration ci-dessus, vous obtenez **un serveur de redirection SIP d'équilibrage de charge**.*
 
 
+## ÉQUILIBREUR DE CHARGE ROUND-ROBIN SIMPLE ÉTAT PLEIN (STATEFULL)
 
 
+L'objectif est de mettre à jour le fichier de configuration précédent afin de faire un transfert avec état et un routage d'enregistrements, **forçant toutes les requêtes dans le dialogue à passer par notre serveur**. De cette façon, les demandes CANCEL peuvent être acheminées correctement par un équilibreur de charge à répétition alternée.
 
+    loadmodule “rr.so”
+    loadmodule “tm.so”
+    loadmodule “sl.so”
+    loadmodule “textops.so”
+    loadmodule “pv.so”
+    loadmodule “cfgutils.so”
+    loadmodule “siputils.so” modparam("pv", "shvset", "i=i:0")           modparam("cfgutils", "lock_set_size", 1)
 
+    request_route {
+  if (is_method("CANCEL")) {
+    if (t_check_trans()) 
+      t_relay();
+    exit; 
 
+  }
+  route(WITHINDLG);
 
+  if(!is_method(“INVITE”)) { 
+    sl_send_reply(“404”, “Not Found”); 
+    exit;
+  }
+  t_check_trans(); lock(“balancing”);
+  $shv(i) = ($shv(i) + 1 ) mod 2; $var(x) = $shv(i); unlock(“balancing”); 
+  if($var(x)==1) {
+    rewritehostport(“1.2.3.4”); 
+  }else{
+    rewritehostport(“2.3.4.5”); 
+  }
+  record_route();
+  route(RELAY); 
+}
+# generic stateful forwarding wrapper 
+route[RELAY] {
+  if (!t_relay()) { 
+    sl_reply_error();
+  } 
+}
+# route requests within SIP dialogs 
+route[WITHINDLG] {
+  if(has_totag()) {
+    if(loose_route()) {
+      route(RELAY); 
+    }else{
+      sl_send_reply("404","Not here"); 
+    }
+    exit; 
+  }
+}
 
 
 
