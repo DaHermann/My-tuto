@@ -53,10 +53,22 @@ Si vous ne souhaitez pas modifier l'URI de la requête, transférez simplement v
     Cette fois, nous chargeons un module,**sl, qui est celui qui peut construire et envoyer des réponses pour les requêtes SIP**.
 
 
+## ÉPONDRE SÉLECTIVEMENT TOUJOURS
 
 
+Un autre cas d'utilisation pour les tests est de répondre avec différents codes de statut basés sur différents critères. Par exemple, si c'est INVITE, BYE ou CANCEL répondez avec 200 0o, si c'est **MESSAGE** répondez avec 202 Accepté et pour le reste répondez avec 403 Interdit:
 
-
+    request_route {
+    
+      if(is_method(“INVITE|BYE|CANCEL”)) { 
+        sl_send_reply(“200”, “OK”);
+      }else if(is_method(“MESSAGE”)) { 
+        sl_send_reply(“202”, “Accepted”);
+      }else {
+        sl_send_reply(“403”, “Forbidden”);
+      } 
+      
+    }
 
 
 
