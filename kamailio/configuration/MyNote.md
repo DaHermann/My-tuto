@@ -85,6 +85,23 @@ Le module Textops est chargé pour la fonction is_method(), qui peut tester le t
     }
 
 
+## SERVEUR DE REDIRECTION SIP
+
+
+Un serveur de redirection est censé envoyer des réponses 3xx avec les adresses alternatives dans les en-têtes Contact. Disons que Kamailio doit rediriger toutes les requêtes SIP vers le serveur 1.2.3.4, en préservant l'extension numérotée:
+
+
+    loadmodule “sl.so” 
+    request_route {
+      rewritehostport(“1.2.3.4”);
+      sl_send_reply(“302”, “Moved Temporarily”); 
+    }
+
+
+
+
+
+
 
 
 
