@@ -198,55 +198,133 @@ L'objectif est de mettre à jour le fichier de configuration précédent afin de
     loadmodule “siputils.so” modparam("pv", "shvset", "i=i:0")           modparam("cfgutils", "lock_set_size", 1)
 
     request_route {
-  if (is_method("CANCEL")) {
-    if (t_check_trans()) 
-      t_relay();
-    exit; 
+      if (is_method("CANCEL")) {
+        if (t_check_trans()) 
+          t_relay();
+        exit; 
 
-  }
-  route(WITHINDLG);
+      }
+      route(WITHINDLG);
 
-  if(!is_method(“INVITE”)) { 
-    sl_send_reply(“404”, “Not Found”); 
-    exit;
-  }
-  t_check_trans(); lock(“balancing”);
-  $shv(i) = ($shv(i) + 1 ) mod 2; $var(x) = $shv(i); unlock(“balancing”); 
-  if($var(x)==1) {
-    rewritehostport(“1.2.3.4”); 
-  }else{
-    rewritehostport(“2.3.4.5”); 
-  }
-  record_route();
-  route(RELAY); 
-}
-# generic stateful forwarding wrapper 
-route[RELAY] {
-  if (!t_relay()) { 
-    sl_reply_error();
-  } 
-}
-# route requests within SIP dialogs 
-route[WITHINDLG] {
-  if(has_totag()) {
-    if(loose_route()) {
+      if(!is_method(“INVITE”)) { 
+        sl_send_reply(“404”, “Not Found”); 
+        exit;
+      }
+      t_check_trans(); lock(“balancing”);
+      $shv(i) = ($shv(i) + 1 ) mod 2; $var(x) = $shv(i); unlock(“balancing”); 
+      if($var(x)==1) {
+        rewritehostport(“1.2.3.4”); 
+      }else{
+        rewritehostport(“2.3.4.5”); 
+      }
+      record_route();
       route(RELAY); 
-    }else{
-      sl_send_reply("404","Not here"); 
     }
-    exit; 
-  }
-}
+    # generic stateful forwarding wrapper 
+    route[RELAY] {
+      if (!t_relay()) { 
+        sl_reply_error();
+      } 
+    }
+    # route requests within SIP dialogs 
+    route[WITHINDLG] {
+      if(has_totag()) {
+        if(loose_route()) {
+          route(RELAY); 
+        }else{
+          sl_send_reply("404","Not here"); 
+        }
+        exit; 
+      }
+     }
+     
+Trois nouveaux modules ont été chargés:
+* tm - pour accéder aux fonctions de transfert avec état  
+* rr - pour accéder aux fonctions de routage d'enregistrement
+* siputils - pour accéder à la fonction has_totag ()
+
+Les nouvelles pièces ajoutées à la configuration sont:
+* acheminement des requêtes CANCEL au début du bloc request_route
+* routage dans les requêtes de dialogue via le bloc route[WITHINDLG], en utilisant un mécanisme de routage lâche
+* absorber la retransmission avec la fonction t_check_trans()
+* ajouter un itinéraire d'enregistrement aux demandes INVITE initiales
+* relais en mode avec état, en utilisant la fonction t_relay() encapsulée dans le bloc route[RELAY], en
+ordre de gérer les erreurs d'appel de fonction
 
 
+## ÉQUILIBREUR DE CHARGE ÉTAT AVEC ROUTAGE D'ÉCHEC
 
+La configuration suivante met en œuvre un routage de défaillance pour l'équilibreur de charge de la section précédente. Si le premier serveur sélectionné répond avec 408 ou 500 réponses, alors on essaie d'envoyer à l'autre. Un autre ajout consiste à autoriser les appels entrants uniquement à partir des réseaux 3.4.5.6/24 et 4.5.6.7/24.
 
-
-
-
-
-
-
+    loadmodule “rr.so”
+    loadmodule “tm.so”
+    loadmodule “sl.so”
+    loadmodule “textops.so”
+    loadmodule “pv.so”
+    loadmodule “cfgutils.so”
+    loadmodule “siputils.so”
+    modparam("tm", "failure_reply_mode", 3) 
+    modparam("pv", "shvset", "i=i:0") 
+    modparam("cfgutils", "lock_set_size", 1)
+    
+    request_route {
+      if(is_method("CANCEL")){
+        if(t_check_trans())
+          t_relay();
+        exit; 
+      }
+      route(WITHINDLG);
+      if(!is_method(“INVITE”)) { 
+        sl_send_reply(“404”, “Not Found”); 
+        exit;
+      }
+      if( ! ( src_ip==3.4.5.6/24 || src_ip==4.5.6.7/24)) {
+        sl_send_reply(“403”, “Forbidden”); 
+        exit;
+      }
+      t_check_trans(); 
+      lock(“balancing”);
+      $shv(i) = ($shv(i) + 1 ) mod 2; 
+      $var(x) = $shv(i); unlock(“balancing”); 
+      if($var(x)==1) {
+        rewritehostport(“1.2.3.4”);
+      }else{ 
+        rewritehostport(“2.3.4.5”);
+      }
+      record_route();
+      $avp(idx) = $var(x); 
+      t_on_failure(“REROUTE”);
+      route(RELAY);
+    }
+    # generic stateful forwarding wrapper 
+    route[RELAY] {
+      if (!t_relay()) { 
+        sl_reply_error();
+      } 
+    }
+    # route requests within SIP dialogs 
+    route[WITHINDLG] {
+      if (has_totag()) {
+        if (loose_route()) {
+          route(RELAY); 
+        }else{
+          sl_send_reply("404","Not here"); 
+        }
+        exit; 
+      }
+    } 
+    failure_route[MANAGE_FAILURE] {
+      if (t_is_canceled()) { 
+        exit;
+      } if(!t_check_status(“408|500”)
+        exit; 
+      if($avp(idx)==0) {
+        rewritehostport(“1.2.3.4”); 
+      }else{
+        rewritehostport(“2.3.4.5”); 
+      }
+      route(RELAY);
+    }
 
 
 
