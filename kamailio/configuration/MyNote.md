@@ -70,6 +70,19 @@ Un autre cas d'utilisation pour les tests est de répondre avec différents code
       
     }
 
+Le module Textops est chargé pour la fonction is_method(), qui peut tester le type de requête en fonction de l'ID interne, pour un ou plusieurs d'entre eux en même temps. Le noyau exporte le mot-clé **méthode** qui peut être utilisé pour comparer la méthode SIP sous forme de chaîne, donc, d’un point de vue fonctionnel, la configuration ci-dessus équivaut à :
+
+
+    loadmodule “sl.so” 
+    request_route {
+      if(method==“INVITE” || method==”BYE” || method==”CANCEL”) {
+        sl_send_reply(“200”, “OK”);
+      } else if(method==“MESSAGE”) {
+        sl_send_reply(“202”, “Accepted”); 
+      } else {
+        sl_send_reply(“403”, “Forbidden”); 
+      }
+    }
 
 
 
