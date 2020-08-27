@@ -44,9 +44,27 @@ Si vous ne souhaitez pas modifier l'URI de la requête, transférez simplement v
    ## RÉPONDRE AVEC 200 OK TOUJOURS
 
   * L'envoi de 200 réponses ok à toutes les demandes reçues peut être utile lors du test des performances d'un autre nœud SIP
-    *le **sl** permet d'envoyeer des reponses:*
 
          loadmodule “sl.so” # chargement du module
          request_route {
             sl_send_reply(“200”, “OK”); #utilisation du module
           }
+
+    Cette fois, nous chargeons un module,**sl, qui est celui qui peut construire et envoyer des réponses pour les requêtes SIP**.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
