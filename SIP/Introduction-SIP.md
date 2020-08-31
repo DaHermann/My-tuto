@@ -100,7 +100,7 @@ L'entité qui reçoit une demande et renvoie une réponse contenant une liste de
 
 L'auteur de la demande extrait alors la liste des destinations et leur envoie directement une autre demande. La figure 4, "**Redirection SIP**", montre une redirection typique.
 
-<img width=600 heigth=600 src="./images/Redirect.png"/>
+<img width=600 heigth=600 src="./images/Redirection.png"/>
 
 
 
