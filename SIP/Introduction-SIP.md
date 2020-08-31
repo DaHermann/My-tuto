@@ -80,10 +80,12 @@ Une configuration typique est que chaque entité administrée centralement (une 
 
 <img width=600 heigth=600 src="./images/figure-2.png"/>
 
+L'utilisateur Joe utilise l'adresse **sip:bob@b.com** pour appeler Bob. L'agent utilisateur de Joe ne sait pas comment acheminer l'invitation elle-même mais il est configuré pour envoyer tout le trafic sortant au serveur proxy SIP de la société **proxy.a.com**. Le serveur proxy se rend compte que l'utilisateur **sip:bob@b.com** se trouve dans une autre entreprise, il va donc rechercher le serveur proxy SIP de B et y envoyer l'invitation. Le serveur proxy de B peut être soit pré-configuré sur **proxy.a.com**, soit le proxy utilisera les enregistrements DNS SRV pour trouver le serveur proxy de B. L'invitation parvient à **proxy.bo.com**. Le proxy sait que Bob est actuellement assis dans son bureau et est joignable par téléphone sur son bureau, qui a l'adresse **IP 1.2.3.4**, donc le proxy y enverra l'invitation.
+
+#### Registraire (Registrar)
 
 
-
-
+Nous avons mentionné que le proxy SIP sur proxy.b.com connaît la localisation actuelle de Bob mais nous n'avons pas encore mentionné comment un proxy peut connaître la localisation actuelle d'un utilisateur. **L'agent utilisateur de Bob (téléphone SIP) doit s'inscrire auprès d'un bureau d'enregistrement**. Le bureau d'enregistrement (registar) est une entité SIP spéciale qui reçoit les enregistrements des utilisateurs, extrait les informations sur leur localisation actuelle (adresse IP, port et nom d'utilisateur dans ce cas) et stocke les informations dans une base de données de localisation. L'objectif de la base de données de localisation est de relier **sip:bob@b.com** à quelque chose comme **sip:bob@1.2.3.4:5060**. La base de données de localisation est ensuite utilisée par le serveur proxy de B. Lorsque le mandataire reçoit une invitation pour **sip:bob@b.com**, il effectue une recherche dans la base de données de localisation. Il trouvera **sip:bob@1.2.3.4:5060** et y enverra l'invitation. Un bureau d'enregistrement (registar)  est très souvent une entité logique uniquement. En raison de leur couplage étroit avec les mandataires, les bureaux d'enregistrement (registar) sont généralement co-localisés avec les serveurs mandataires.
 
 
 
