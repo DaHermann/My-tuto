@@ -87,19 +87,20 @@ L'utilisateur Joe utilise l'adresse **sip:bob@b.com** pour appeler Bob. L'agent 
 
 Nous avons mentionné que le proxy SIP sur proxy.b.com connaît la localisation actuelle de Bob mais nous n'avons pas encore mentionné comment un proxy peut connaître la localisation actuelle d'un utilisateur. **L'agent utilisateur de Bob (téléphone SIP) doit s'inscrire auprès d'un bureau d'enregistrement**. Le bureau d'enregistrement (registar) est une entité SIP spéciale qui reçoit les enregistrements des utilisateurs, extrait les informations sur leur localisation actuelle (adresse IP, port et nom d'utilisateur dans ce cas) et stocke les informations dans une base de données de localisation. L'objectif de la base de données de localisation est de relier **sip:bob@b.com** à quelque chose comme **sip:bob@1.2.3.4:5060**. La base de données de localisation est ensuite utilisée par le serveur proxy de B. Lorsque le mandataire reçoit une invitation pour **sip:bob@b.com**, il effectue une recherche dans la base de données de localisation. Il trouvera **sip:bob@1.2.3.4:5060** et y enverra l'invitation. Un bureau d'enregistrement (registar)  est très souvent une entité logique uniquement. En raison de leur couplage étroit avec les mandataires, les bureaux d'enregistrement (registar) sont généralement co-localisés avec les serveurs mandataires.
 
-La figure 3, "Aperçu du bureau d'enregistrement", montre un enregistrement SIP typique. Un message REGISTER contenant l'adresse d'enregistrement sip:jan@iptel.org et l'adresse de contact sip:jan@1.2.3.4:5060 où 1.2.3.4 est l'adresse IP du téléphone, est envoyé au bureau d'enregistrement. Le bureau d'enregistrement extrait ces informations et les stocke dans la base de données de localisation. Si tout s'est bien passé, le bureau d'enregistrement envoie une réponse de 200 OK au téléphone et le processus d'enregistrement est terminé.
+La figure 3, "Aperçu du bureau d'enregistrement", montre **un enregistrement SIP typique**. Un message **REGISTER** contenant l'adresse d'enregistrement **sip:jan@iptel.org** et l'adresse de contact **sip:jan@1.2.3.4:5060** où **1.2.3.4** est l'adresse IP du téléphone, est envoyé au bureau d'enregistrement. Le bureau d'enregistrement extrait ces informations et les stocke dans la base de données de localisation. Si tout s'est bien passé, le bureau d'enregistrement **envoie une réponse de 200 OK** au téléphone et le processus d'enregistrement est terminé.
 
 <img width=600 heigth=600 src="./images/Registar.png"/>
 
+**Chaque inscription a une durée de vie limitée**. Le champ "Expires header" ou le paramètre "Expires" du champ "Contact header" détermine la durée de validité de l'enregistrement. L'agent utilisateur doit actualiser l'enregistrement pendant sa durée de vie, sinon il expirera et l'utilisateur deviendra indisponible.
 
 
+#### * Serveur de redirection (Redirect Server)
 
+L'entité qui reçoit une demande et renvoie une réponse contenant une liste de l'emplacement actuel d'un utilisateur particulier est appelée serveur de redirection. Un serveur de redirection reçoit les demandes et recherche le destinataire de la demande dans la base de données de localisation créée par un bureau d'enregistrement. Il crée ensuite une liste des localisations actuelles de l'utilisateur et l'envoie à l'auteur de la demande dans une réponse de classe **3xx**.
 
+L'auteur de la demande extrait alors la liste des destinations et leur envoie directement une autre demande. La figure 4, "**Redirection SIP**", montre une redirection typique.
 
-
-
-
-
+<img width=600 heigth=600 src="./images/Redirect.png"/>
 
 
 
