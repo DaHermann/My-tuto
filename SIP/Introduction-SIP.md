@@ -104,6 +104,73 @@ L'auteur de la demande extrait alors la liste des destinations et leur envoie di
 
 
 
+#### * Les messages SIP (SIP Messages)
+
+
+La communication par SIP (souvent appelée signalisation) est constituée de séries de messages. Les messages peuvent être transportés indépendamment par le réseau. En général, ils sont transportés chacun dans un datagramme UDP distinct. Chaque message se compose d'une "première ligne", d'un en-tête et d'un corps de message. La première ligne identifie le type de message. Il existe deux types de messages : les demandes et les réponses. Les demandes sont généralement utilisées pour lancer une action ou informer le destinataire de la demande de quelque chose. Les réponses sont utilisées pour confirmer qu'une demande a été reçue et traitée et contiennent l'état du traitement.
+
+Une demande SIP typique se présente comme suit :
+
+
+    INVITE sip:7170@iptel.org SIP/2.0
+    Via: SIP/2.0/UDP 195.37.77.100:5040;rport
+    Max-Forwards: 10
+    From: "jiri" <sip:jiri@iptel.org>;tag=76ff7a07-c091-4192-84a0-d56e91fe104f
+    To: <sip:jiri@bat.iptel.org>
+    Call-ID: d10815e0-bf17-4afa-8412-d9130a793d96@213.20.128.35
+    CSeq: 2 INVITE
+    Contact: <sip:213.20.128.35:9315>
+    User-Agent: Windows RTC/1.0
+    Proxy-Authorization: Digest username="jiri", realm="iptel.org", 
+     algorithm="MD5", uri="sip:jiri@bat.iptel.org", 
+     nonce="3cef753900000001771328f5ae1b8b7f0d742da1feb5753c", 
+     response="53fe98db10e1074
+     b03b3e06438bda70f"
+    Content-Type: application/sdp
+    Content-Length: 451
+
+    v=0
+    o=jku2 0 0 IN IP4 213.20.128.35
+    s=session
+    c=IN IP4 213.20.128.35
+    b=CT:1000
+    t=0 0
+    m=audio 54742 RTP/AVP 97 111 112 6 0 8 4 5 3 101
+    a=rtpmap:97 red/8000
+    a=rtpmap:111 SIREN/16000
+    a=fmtp:111 bitrate=16000
+    a=rtpmap:112 G7221/16000
+    a=fmtp:112 bitrate=24000
+    a=rtpmap:6 DVI4/16000
+    a=rtpmap:0 PCMU/8000
+    a=rtpmap:4 G723/8000
+    a=rtpmap: 3 GSM/8000
+    a=rtpmap:101 telephone-event/8000
+    a=fmtp:101 0-16
+
+
+
+La première ligne nous indique qu'il s'agit du message INVITE qui est utilisé pour établir une session. L'URI sur le premier line--sip:7170@iptel.org s'appelle Request URI et contient l'URI du prochain saut du message. Dans ce cas, il s'agira de l'hôte iptel.org.
+
+Une requête SIP peut contenir un ou plusieurs champs d'en-tête Via qui sont utilisés pour enregistrer le chemin de la requête. Ils sont ensuite utilisés pour acheminer les réponses SIP exactement de la même manière. Le message INVITE contient un seul champ d'en-tête Via, créé par l'agent utilisateur qui a envoyé la demande. Le champ Via nous permet de savoir que l'agent utilisateur fonctionne sur l'hôte 195.37.77.100 et le port 5060.
+
+Les champs d'en-tête From et To identifient l'initiateur (appelant) et le destinataire (appelé) de l'invitation (tout comme dans le SMTP où ils identifient l'expéditeur et le destinataire d'un message). Le champ d'en-tête From contient un paramètre de balise qui sert d'identificateur de dialogue et qui sera décrit dans la section 1.6, "Dialogues SIP".
+
+Le champ d'en-tête Call-ID est un identificateur de dialogue et a pour but d'identifier les messages appartenant à un même appel. Ces messages ont le même identificateur Call-ID. CSeq est utilisé pour maintenir l'ordre des demandes. Comme les demandes peuvent être envoyées par un transport peu fiable qui peut réordonner les messages, un numéro de séquence doit être présent dans les messages afin que le destinataire puisse identifier les retransmissions et les demandes en désordre.
+
+Le champ d'en-tête du contact contient l'adresse IP et le port sur lequel l'expéditeur attend les autres demandes envoyées par le destinataire. Les autres champs d'en-tête ne sont pas importants et ne seront pas décrits ici.
+
+L'en-tête du message est délimité du corps du message par une ligne vide. Le corps du message de la demande INVITE contient une description du type de média accepté par l'expéditeur et encodé en SDP.
+
+
+
+
+
+
+
+
+
+
 
 
 
