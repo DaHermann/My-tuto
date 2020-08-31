@@ -37,9 +37,7 @@ Comme un agent utilisateur contient à la fois un UAC et un UAS, nous disons sou
 
 Mais cette situation change lorsque l'appelé décide d'envoyer un BYE et de mettre fin à la session. Dans ce cas, l'agent utilisateur de l'appelé (envoi d'un BYE) se comporte comme un UAC et l'agent utilisateur de l'appelant se comporte comme un UAS.
 
-
-
-
+<img width=600 heigth=600 src="./images/figure-1.png"/>
 
 
 
