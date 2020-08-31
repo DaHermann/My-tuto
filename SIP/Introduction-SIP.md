@@ -14,3 +14,37 @@ Le SIP a été conçu en conformité avec le modèle Internet. Il s'agit d'un pr
 Il convient de mentionner que le concept de SIP de bout en bout est très différent du RTPC (réseau téléphonique public commuté) ordinaire, où tout l'état et la logique sont stockés dans le réseau et où les appareils terminaux (téléphones) sont très primitifs. L'objectif du SIP est de fournir les mêmes fonctionnalités que celles des RTPC traditionnels, mais la conception de bout en bout rend les réseaux SIP beaucoup plus puissants et ouverts à la mise en œuvre de nouveaux services qui peuvent difficilement être mis en œuvre dans les RTPC traditionnels.
 
 Le SIP est basé sur le protocole HTTP. Le protocole HTTP a hérité du format des en-têtes de message de la RFC822. HTTP est probablement le protocole le plus réussi et le plus largement utilisé sur Internet. Il tente de combiner le meilleur des deux. En fait, le HTTP peut également être classé comme un protocole de signalisation, car les agents utilisateurs utilisent le protocole pour indiquer à un serveur HTTP les documents qui les intéressent. SIP est utilisé pour transporter la description des paramètres de session, la description est encodée dans un document en utilisant SDP. Les deux protocoles (HTTP et SIP) ont hérité du codage des en-têtes de message de la RFC822. L'encodage s'est avéré robuste et flexible au fil des ans.
+
+
+##  SIP URI
+
+Les entités SIP sont identifiées à l'aide du SIP URI (Uniform Resource Identifier). Un SIP URI se présente sous la forme *sip:username@domain*, par exemple, *sip:joe@company.com*. Comme on peut le voir, le SIP URI est constitué d'une partie nom d'utilisateur et d'une partie nom de domaine délimitées par le caractère @ (at). Les SIP URI sont similaires aux adresses électroniques, il est par exemple possible d'utiliser le même URI pour le courrier électronique et la communication SIP, ces URI sont faciles à mémoriser.
+
+## Les éléments du réseau SIP
+
+  Bien que dans la configuration la plus simple, il soit possible d'utiliser seulement deux agents utilisateurs qui s'envoient directement des messages SIP, un réseau SIP typique contiendra plus d'un type d'éléments SIP. Les éléments SIP de base sont les agents utilisateurs, les proxies, les bureaux d'enregistrement et les serveurs de redirection. Nous les décrirons brièvement dans cette section.
+
+Notez que les éléments, tels qu'ils sont présentés dans cette section, ne sont souvent que des entités logiques. Il est souvent avantageux de les regrouper, par exemple pour augmenter la vitesse de traitement, mais cela dépend d'une mise en œuvre et d'une configuration particulières.
+
+#### * Les agents utilisateurs (User Agents)
+
+
+Les terminaux Internet qui utilisent le SIP pour se retrouver et pour négocier les caractéristiques d'une session sont appelés agents utilisateurs. Les agents utilisateurs résident généralement, mais pas nécessairement, sur l'ordinateur d'un utilisateur sous la forme d'une application - c'est actuellement l'approche la plus utilisée, mais les agents utilisateurs peuvent également être des téléphones portables, des passerelles RTPC, des PDA, des systèmes IVR automatisés, etc.
+
+Les agents utilisateurs sont souvent appelés **User Agent Server (UAS)** et **User Agent Client (UAC)**. Les **UAS** et **UAC** sont des **entités logiques uniquement**, chaque agent utilisateur contient un UAC et un UAS. **L'UAC est la partie de l'agent utilisateur qui envoie les demandes et reçoit les réponses. L'UAS est la partie de l'agent utilisateur qui reçoit les demandes et envoie les réponses**.
+
+Comme un agent utilisateur contient à la fois un UAC et un UAS, nous disons souvent qu'un agent utilisateur se comporte comme un UAC ou un UAS. Par exemple, l'agent utilisateur de l'appelant se comporte comme un UAC lorsqu'il envoie une demande INVITE et reçoit des réponses à cette demande. L'agent utilisateur de l'appelant se comporte comme un UAS lorsqu'il reçoit l'INVITE et envoie des réponses.
+
+Mais cette situation change lorsque l'appelé décide d'envoyer un BYE et de mettre fin à la session. Dans ce cas, l'agent utilisateur de l'appelé (envoi d'un BYE) se comporte comme un UAC et l'agent utilisateur de l'appelant se comporte comme un UAS.
+
+
+
+
+
+
+
+
+
+
+
+
