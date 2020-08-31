@@ -168,7 +168,7 @@ L'en-tête du message est délimité du corps du message par une ligne vide. Le 
 
 
 
-
+https://www.kamailio.org/docs/tutorials/sip-introduction/
 
 
 
