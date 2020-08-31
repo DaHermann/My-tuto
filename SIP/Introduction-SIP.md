@@ -39,10 +39,17 @@ Mais cette situation change lorsque l'appelé décide d'envoyer un BYE et de met
 
 <img width=600 heigth=600 src="./images/figure-1.png"/>
 
+La figure 1, "UAC et UAS", montre trois agents utilisateurs et un proxy à bifurcation d'état (**stateful forking**). Chaque agent utilisateur contient UAC et UAS. La partie du proxy qui reçoit l'INVITE de l'appelant agit en fait comme un UAS. Lorsqu'il transmet la demande en mode "stateful forking", le proxy crée deux UAC, chacun d'eux étant responsable d'une branche.
+
+Dans notre exemple, l'appelé B a décroché et plus tard, lorsqu'il veut démolir l'appel, il envoie un BYE. À ce moment, l'agent utilisateur qui était auparavant un UAS devient un UAC et vice versa.
+
+#### * Serveurs mandataires (Proxy Servers)
 
 
+En outre, le SIP permet la création d'une infrastructure d'hôtes de réseau appelée serveurs proxy. Les agents utilisateurs peuvent envoyer des messages à un serveur proxy. Les serveurs proxy sont des entités très importantes dans l'infrastructure SIP. **Ils assurent le routage des invitations à une session en fonction de l'emplacement actuel de l'invité, l'authentification, la comptabilité et de nombreuses autres fonctions importantes**.
 
+La tâche la plus importante d'un serveur proxy est d'acheminer les invitations de session "plus près" de l'invité. L'invitation de session traverse généralement un ensemble de serveurs mandataires jusqu'à ce qu'elle trouve celui qui connaît l'emplacement réel de l'invité. Un tel proxy transmettra l'invitation de session directement à l'appelé et ce dernier acceptera ou refusera l'invitation de session.
 
-
+Il existe deux types de base de serveurs proxy SIP : **stateless** (sans etat) et **stateful** (avec etat).
 
 
