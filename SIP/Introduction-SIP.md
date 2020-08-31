@@ -52,4 +52,57 @@ La tâche la plus importante d'un serveur proxy est d'acheminer les invitations 
 
 Il existe deux types de base de serveurs proxy SIP : **stateless** (sans etat) et **stateful** (avec etat).
 
+##### - Serveurs sans Etat (Stateless Servers)
+
+Les serveurs sans Etat sont de simples transmetteurs de messages. Ils font suivre les messages indépendamment les uns des autres. Bien que les messages soient généralement organisés en transactions (voir la section 1.5, "Transactions SIP"), les serveurs mandataires sans état ne s'occupent pas des transactions.
+
+Les serveurs mandataires sans état sont simples, mais plus rapides que les serveurs mandataires avec état. Ils peuvent être utilisés comme de simples équilibreurs de charge, traducteurs de messages et routeurs. L'un des inconvénients des serveurs mandataires sans état est qu'ils sont incapables d'absorber les retransmissions de messages et d'effectuer un routage plus avancé, par exemple, la dérivation (forking) ou la traversée récursive.
+
+
+##### - Serveurs avec Etat (Statefull Servers)
+
+
+Les procurations officielles sont plus complexes. À la réception d'une demande, les mandataires habilités à agir par procuration créent un état et le conservent jusqu'à la fin de la transaction. Certaines transactions, en particulier celles créées par INVITE, peuvent durer assez longtemps (jusqu'à ce que l'appelé décroche ou décline l'appel). Étant donné que les mandataires habilités doivent maintenir l'état pendant toute la durée des transactions, leur performance est limitée.
+
+La possibilité d'associer des messages SIP aux transactions donne aux mandataires avec état certaines caractéristiques intéressantes. Ils peuvent effectuer des bifurcations (forking), c'est-à-dire qu'à la réception d'un message, deux ou plusieurs messages seront envoyés.
+
+Les mandataires avec état peuvent absorber les retransmissions car ils savent, grâce à l'état de la transaction, s'ils ont déjà reçu le même message (les mandataires apatrides ne peuvent pas faire le contrôle car ils ne gardent pas d'état).
+
+Les mandataires avec statut peuvent utiliser des méthodes plus complexes pour trouver un utilisateur. Il est, par exemple, possible d'essayer de joindre le téléphone du bureau de l'utilisateur et lorsque celui-ci ne décroche pas, l'appel est redirigé vers son téléphone portable. Les mandataires sans état ne peuvent pas faire cela car ils n'ont aucun moyen de savoir comment s'est terminée la transaction destinée au téléphone du bureau.
+
+La plupart des proxies SIP sont aujourd'hui sans état car leur configuration est généralement très complexe. Ils effectuent souvent la comptabilité, le bifurcation (forking), une sorte d'aide à la traversée NAT et toutes ces fonctionnalités nécessitent un proxy avec état.
+
+
+##### - Utilisation d'un serveur mandataire (Proxy Server Usage)
+
+
+Une configuration typique est que chaque entité administrée centralement (une entreprise, par exemple) dispose de son propre serveur proxy SIP qui est utilisé par tous les agents utilisateurs de l'entité. Supposons qu'il y ait deux sociétés A et B et que chacune d'entre elles possède son propre serveur proxy. La figure 2, "Invitation de session", montre comment une invitation de session émanant de l'employé Joe dans l'entreprise A parvient à l'employé Bob dans l'entreprise B.
+
+<img width=600 heigth=600 src="./images/figure-2.png"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
