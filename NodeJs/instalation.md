@@ -4,8 +4,8 @@
     
 * Once installed, check the Node.js version:
 
-    node --version
-    v10.15.2
+            node --version
+            v10.15.2
 
 
 ### 1) As a regular user first the install NVM manager:
