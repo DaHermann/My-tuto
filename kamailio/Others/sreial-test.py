@@ -22,9 +22,9 @@ route[WINS]{
 
 route[SERIAL_F]{
 	if(is_method("INVITE")){
-		seturi("sip:$rU@$rd");
-		append_branch("sip:$rU@$rd", "1.0");
-		#append_branch("sip:$rU@$rd", "0.5");
+		seturi("sip:9000678@$rd");
+		append_branch("sip:823456@$rd", "1.0");
+		#append_branch("sip:912356@$rd", "0.5");
 		xlog("next : t_next_contacts();");
 
 		t_load_contacts();
