@@ -46,7 +46,7 @@ failure_route["serial"]
 
 ---------------------------------------------------------------------------------
 
-# @@@@@@@@@@@@ ÇA PASSE PAS @@@@@@@@@@@@@@@@@@@@@#
+# @@@@@@@@@@@@ ÇA PASSE PAS @@@@@@@@@@@@@@@@@@@@@ #
 
 route[WINS_TEST]{
 
@@ -90,5 +90,31 @@ route[WINS_TEST]{
 ---------------------------------------------------------------------------------------
 
 
+# @@@@@@@@@@@@ ÇA PASSE PAS @@@@@@@@@@@@@@@@@@@@@ #
 
+route[UPDATE_Q] {
+	#sql_query("db_connection","select * from location","locations");
 
+	#$var(me) = 0;
+	#$var(len) = $dbr(locations=>rows);
+	#xlog("c'est la longueur $var(len)");
+
+	if(is_method("INVITE")){
+		sql_query("db_connection","select * from location where username=$rU","users");
+
+		$var(userlen) = $dbr(users=>rows);
+		if($var(userlen)>1){
+			$var(i) = 0;
+			while($var(i)<$var(userlen)){
+				xlog("id = $dbr(users=>[$var(i),0])");
+				$var(id) = $dbr(users=>[$var(i),0]);
+				$var(q) = ($var(i) + 2);
+				sql_query("db_connection","update location set q='0.$var(q)'  where id=$var(id)");
+				$var(i) = $var(i) + 1;	
+			}
+		}	
+	}
+
+}
+
+---------------------------------------------------------------------------------
