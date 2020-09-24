@@ -5,21 +5,6 @@
 @@@@@@@@@@@@@@@@@@@@@@ ÇA PASSE PAS @@@@@@@@@@@@@@@@@@
 
 # Winner functions
-route[WINS]{
-	sql_query("locA", "select * from location where username=$rU", "res_loc");
-
-/*
-	$var(num) = 0;
-	while( $var(num)<$dbr(res_loc=>rows) ){
-
-		xlog();
-
-	}
-*/
-	xlog("voici les location $dbr(res_loc=>rows)");
-	sql_result_free("res_loc");
-}
-
 route[SERIAL_F]{
 	if(is_method("INVITE")){
 		seturi("sip:9000678@$rd");
