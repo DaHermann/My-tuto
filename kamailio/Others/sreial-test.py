@@ -106,3 +106,65 @@ route[UPDATE_Q] {
 ---------------------------------------------------------------------------------
 
 
+ @@@@@@@@@@@@ ? @@@@@@@@@@@@@@@@@@@@@ 
+	
+*** AVEC DISPATCHER MODULE ****
+
+
+loadmodule "dispatcher.so"
+...
+
+# ----- dispatcher params ----- 
+
+modparam("dispatcher", "db_url", DBURL) 
+modparam("dispatcher", "ds_ping_interval", 1)
+modparam("dispatcher", "table_name", "dispatcher")
+modparam("dispatcher", "flags", 2) 
+modparam("dispatcher", "ds_ping_latency_stats", 1)
+modparam("dispatcher", "ds_latency_estimator_alpha", 900)
+
+
+request_route {
+# do checks , indialog etc ...
+# dispatch destinations 
+route(DISPATCH); 
+}
+
+# Dispatch requests
+route[DISPATCH] {
+     # round robin dispatching on gateways group '1'
+     if(!ds_select_dst("1", "4")) {
+         send_reply("404", "No destination");
+         exit;
+     }
+     xlog("L_DBG", "--- SCRIPT: going to <$ru> via <$du>\n");
+     t_on_failure("RTF_DISPATCH");
+     route(RELAY);
+     exit;
+ }
+
+
+# Try next destinations in failure route, except if session gets cancelled 
+failure_route[RTF_DISPATCH] {
+     if (t_is_canceled()) {
+         exit;
+     }
+     # next DST - only for 500 or local timeout
+     if (t_check_status("500") or (t_branch_timeout() and !t_branch_replied())) {
+         if(ds_next_dst()) {
+             t_on_failure("RTF_DISPATCH");
+             route(RELAY);
+             exit;
+         }
+     }
+ }
+
+
+
+
+
+
+
+
+
+
