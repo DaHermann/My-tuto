@@ -123,6 +123,10 @@ modparam("dispatcher", "flags", 2)
 modparam("dispatcher", "ds_ping_latency_stats", 1)
 modparam("dispatcher", "ds_latency_estimator_alpha", 900)
 
+# requette SQL pour save une adresse ip dans la table dispatcher
+
+INSERT INTO "dispatcher" VALUES(1,1,'sip:192.168.0.1:5060',0,12,'rweight=50;weight=50;cc=1;','');
+
 
 request_route {
 # do checks , indialog etc ...
