@@ -24,14 +24,15 @@
 
 ### 4) Next, list all available Node.js versions:
 
-  $ nvm ls-remote
-  ...
-         v12.13.0   (LTS: Erbium)
-         v12.13.1   (Latest LTS: Erbium)
-          v13.0.0
-          v13.0.1
-          v13.1.0
-  ->      v13.2.0
+
+          $ nvm ls-remote
+          ...
+                 v12.13.0   (LTS: Erbium)
+                 v12.13.1   (Latest LTS: Erbium)
+                  v13.0.0
+                  v13.0.1
+                  v13.1.0
+          ->      v13.2.0
   
   
   
