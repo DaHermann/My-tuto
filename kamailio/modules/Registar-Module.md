@@ -26,3 +26,15 @@ Les drapeaux peuvent être donnés en format décimal ou hexa.
   * **uri** (facultatif - le paramètre flags doit être défini et peut être 0 pour le comportement par défaut) - l'URI SIP doit être utilisé à la place de l'URI de l'en-tête To. Il peut s'agir d'une chaîne dynamique avec des pseudo-variables.
 
 Codes de retour :
+
+*  **-1** - erreur.
+
+   **1** - contacts insérés.
+
+   **2** - contacts mis à jour.
+
+   **3** - contacts supprimés.
+
+   **4** - contacts retournés.
+
+Cette fonction peut être utilisée à partir de **REQUEST_ROUTE** et **REPLY_ROUTE**.
