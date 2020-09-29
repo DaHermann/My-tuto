@@ -38,3 +38,11 @@ Codes de retour :
    **4** - contacts retournés.
 
 Cette fonction peut être utilisée à partir de **REQUEST_ROUTE** et **REPLY_ROUTE**.
+
+**EXEMPLE**
+
+    ...
+    save("location");
+    save("location", "0x01");
+    save("location", "0x00", "sip:test@kamailio.org");
+    ...
