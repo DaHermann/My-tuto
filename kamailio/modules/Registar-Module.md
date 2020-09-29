@@ -46,3 +46,43 @@ Cette fonction peut être utilisée à partir de **REQUEST_ROUTE** et **REPLY_RO
     save("location", "0x01");
     save("location", "0x00", "sip:test@kamailio.org");
     ...
+    
+    
+## lookup(domain [, uri])
+
+La fonction extrait le nom d'utilisateur de la demande d'information et tente de trouver tous les contacts pour le nom d'utilisateur dans **usrloc**. S'il n'y a pas de tels contacts, **-1** sera renvoyé. S'il existe de tels contacts, **Request-URI** sera écrasé par le contact qui a la valeur q la plus élevée et, éventuellement, le reste sera ajouté au message (selon la valeur du paramètre **append_branches**).
+
+Si l'option **method_filtering** est activée, la fonction de recherche retournera uniquement les contacts qui supportent la méthode de la demande traitée.
+
+La signification des paramètres est la suivante :
+
+ * **domain** - Nom de la table qui doit être utilisée pour la recherche.
+
+ * **uri** (facultatif) - URI SIP à utiliser à la place de R-URI. Il peut s'agir d'une chaîne dynamique avec des pseudo-variables.
+
+Codes de retour :
+
+* **1** - contacts trouvés et retournés.
+
+  **-1** - aucun contact trouvé.
+
+  **-2** - contacts trouvés, mais méthode non prise en charge.
+
+  **-3** - erreur interne lors du traitement.
+
+Cette fonction peut être utilisée à partir de **REQUEST_ROUTE, FAILURE_ROUTE**.
+
+**EXEMPLE**
+
+     ...
+    lookup("location");
+    switch ($retcode) {
+        case -1:
+        case -3:
+            sl_send_reply("404", "Not Found");
+            exit;
+        case -2:
+            sl_send_reply("405", "Not Found");
+            exit;
+    };
+    ...
