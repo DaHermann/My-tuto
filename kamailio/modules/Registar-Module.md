@@ -15,11 +15,11 @@ La signification des paramètres est la suivante :
 
   * **flags** (acultatif) - la valeur peut être un OU bit par bit des drapeaux suivants :
 
-        * **0x01** - enregistrer les contacts uniquement dans le cache mémoire sans aucune opération sur la base de données ;
+       * **0x01** - enregistrer les contacts uniquement dans le cache mémoire sans aucune opération sur la base de données ;
 
-        * **0x02** - ne pas générer de réponse SIP à la requête REGISTER en cours. Lorsqu'il est utilisé dans **ONREPLY_ROUTE**, ce paramètre est obsolète.
+       * **0x02** - ne pas générer de réponse SIP à la requête REGISTER en cours. Lorsqu'il est utilisé dans **ONREPLY_ROUTE**, ce paramètre est obsolète.
 
-        * **0x04** - stocker et maintenir un contact par AoR. S'il existe d'autres adresses de contact pour l'AoR qui ne correspondent pas à l'enregistrement actuel, supprimez-les. Ce mode assure un contact par AoR (utilisateur).
+       * **0x04** - stocker et maintenir un contact par AoR. S'il existe d'autres adresses de contact pour l'AoR qui ne correspondent pas à l'enregistrement actuel, supprimez-les. Ce mode assure un contact par AoR (utilisateur).
 
 Les drapeaux peuvent être donnés en format décimal ou hexa.
 
