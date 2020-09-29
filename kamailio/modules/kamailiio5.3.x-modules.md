@@ -31,49 +31,49 @@ AVP |	Collection of functions for handling AVPs |	from-ser
 AVPOPS |	AVP operations module |	released
 BENCHMARK |	Config file benchmarking |	released
 BLST |	Blacklisting API for config |	released
-CALL_CONTROL	Conector to call_control application	released
-CALL_OBJ	Assign integer ids to calls from a ring pool of values	released
-CARRIERROUTE	Routing extension suitable for carriers	released
-CDP	C Diameter Peer - core communication engine	released
-CDP_AVP	C Diameter Peer - application extensions	released
-CFG_DB	Load core and module parameters from database	released
-CFG_RPC	Update core and module parameters at runtime via RPC interface	released
-CFGUTILS	Different config utilities	released
-CFGT	Unit test config file execution tracing	released
-CNXCC	Credit control module - prepaid system	released
-COREX	Core extensions via module interface	released
-COUNTERS	Internal counter API for config	released
-CPLC	CPL interpreter module	renamed
-CRYPTO	Cryptographic extensions for use in config	released
-CTL	Control connector for RPC interface (fifo, unixsock, tcp, udp)	released
-DB_BERKELEY	Berkeley DB driver for DB API	released
-DB_CASSANDRA	Cassandra database server connector	released
-DB_CLUSTER	Generic database connectors clustering	released
-DB_FLATSTORE	Fast writting-only text-backend for database module	released
-DB_MONGODB	MongoDB connector for DB APIv1	released
-DB_MYSQL	MYSQL-backend for database API module	released
-DB_ORACLE	Oracle driver for DB API	released
-DB_PERLVDB	Perl Virtual Database engine	released
-DB_POSTGRES	POSTGRES-backend for database API module	released
-DB_REDIS	Redis-backend for database API module	released
-DB_SQLITE	SQLITE-backend for database API module	released
-DB_TEXT	Text-backend for database API module	released
-DB_UNIXODBC	unixODBC driver module	released
-DB2_LDAP	DB APIv2 connector to LDAP servers	from-ser
-DB2_OPS	DB APIv2 config operations	from-ser
-DEBUGGER	Interactive config debugger	released
-DIALOG	Dialog support module	released
-DIALPLAN	Dialplan translation module	released
-DISPATCHER	Dispatcher (load-balancer) module	released
-DIVERSION	Diversion header insertion module	released
-DMQ	Distributed Message Queue System using SIP	released
-DMQ_USRLOC	User location replication using DMQ	released
-DNSSEC	DNSSEC implementation for SIP routing	released
-DOMAIN	Multi-domain support module	released
-DOMAINPOLICY	Policies to connect federations	released
-DROUTING	Yet another prefix routing module	released
-ENUM	ENUM lookup module	released
-ERLANG	Erlang node connector module	released
+CALL_CONTROL |	Conector to call_control application |	released
+CALL_OBJ |	Assign integer ids to calls from a ring pool of values |	released
+CARRIERROUTE |	Routing extension suitable for carriers |	released
+CDP |	C Diameter Peer - core communication engine |	released
+CDP_AVP |	C Diameter Peer - application extensions |	released
+CFG_DB |	Load core and module parameters from database |	released
+CFG_RPC |	Update core and module parameters at runtime via RPC interface |	released
+CFGUTILS |	Different config utilities |	released
+CFGT |	Unit test config file execution tracing |	released
+CNXCC |	Credit control module - prepaid system |	released
+COREX |	Core extensions via module interface |	released
+COUNTERS |	Internal counter API for config |	released
+CPLC |	CPL interpreter module |	renamed
+CRYPTO |	Cryptographic extensions for use in config |	released
+CTL |	Control connector for RPC interface (fifo, unixsock, tcp, udp) |	released
+DB_BERKELEY |	Berkeley DB driver for DB API |	released
+DB_CASSANDRA |	Cassandra database server connector |	released
+DB_CLUSTER |	Generic database connectors clustering |	released
+DB_FLATSTORE |	Fast writting-only text-backend for database module |	released
+DB_MONGODB |	MongoDB connector for DB APIv1 |	released
+DB_MYSQL |	MYSQL-backend for database API module |	released
+DB_ORACLE |	Oracle driver for DB API |	released
+DB_PERLVDB |	Perl Virtual Database engine |	released
+DB_POSTGRES |	POSTGRES-backend for database API module |	released
+DB_REDIS |	Redis-backend for database API module |	released
+DB_SQLITE |	SQLITE-backend for database API module |	released
+DB_TEXT |	Text-backend for database API module |	released
+DB_UNIXODBC |	unixODBC driver module |	released
+DB2_LDAP |	DB APIv2 connector to LDAP servers |	from-ser
+DB2_OPS |	DB APIv2 config operations |	from-ser
+DEBUGGER |	Interactive config debugger |	released
+DIALOG |	Dialog support module |	released
+DIALPLAN |	Dialplan translation module |	released
+DISPATCHER |	Dispatcher (load-balancer) module |	released
+DIVERSION |	Diversion header insertion module |	released
+DMQ |	Distributed Message Queue System using SIP |	released
+DMQ_USRLOC |	User location replication using DMQ |	released
+DNSSEC |	DNSSEC implementation for SIP routing |	released
+DOMAIN |	Multi-domain support module	released |
+DOMAINPOLICY |	Policies to connect federations |	released
+DROUTING |	Yet another prefix routing module |	released
+ENUM	ENUM lookup module |	released
+ERLANG	Erlang node connector module |	released
 EVAPI	Network event broadcast API	released
 EVREXEC	Execut event routes at startup on dedicated processes	released
 EXEC	External application execution module	released
