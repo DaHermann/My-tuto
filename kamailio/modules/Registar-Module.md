@@ -19,15 +19,18 @@ La signification des paramètres est la suivante :
 
        * **0x02** - ne pas générer de réponse SIP à la requête REGISTER en cours. Lorsqu'il est utilisé dans **ONREPLY_ROUTE**, ce paramètre est obsolète.
 
-       * **0x04** - stocker et maintenir un contact par AoR. S'il existe d'autres adresses de contact pour l'AoR qui ne correspondent pas à l'enregistrement actuel, supprimez-les. Ce mode assure un contact par AoR (utilisateur).
+       * **0x04** - stocker et maintenir un contact par AoR. S'il existe d'autres adresses de contact pour l'**AoR** qui ne correspondent pas à l'enregistrement actuel, supprimez-les. Ce mode assure un contact par **AoR (utilisateur)**.
+       
+       * **0x08** - N'appliquez pas expires_range ou default_expires_range à cet enregistrement.
 
 Les drapeaux peuvent être donnés en format décimal ou hexa.
 
   * **uri** (facultatif - le paramètre flags doit être défini et peut être 0 pour le comportement par défaut) - l'URI SIP doit être utilisé à la place de l'URI de l'en-tête To. Il peut s'agir d'une chaîne dynamique avec des pseudo-variables.
 
 Codes de retour :
+*  **2** - erreur, trop de contacts pour **AOR**.
 
-*  **-1** - erreur.
+   **-1** - erreur.
 
    **1** - contacts insérés.
 
@@ -37,7 +40,7 @@ Codes de retour :
 
    **4** - contacts retournés.
 
-Cette fonction peut être utilisée à partir de **REQUEST_ROUTE** et **REPLY_ROUTE**.
+Cette fonction peut être utilisée à partir de **RREQUEST_ROUTE, FAILURE_ROUTE et REPLY_ROUTE.**.
 
 **EXEMPLE**
 
