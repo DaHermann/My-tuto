@@ -169,8 +169,6 @@ failure_route[RTF_DISPATCH] {
 
 
   @@@@@@@@@@@@ C'EST BON  @@@@@@@@@@@@@@@@@@@@@ 
-
-
 	
 	
 route {
@@ -247,10 +245,9 @@ failure_route[2] {
 
     if(t_check_status("486|408")){
         rewriteuri("sip:8002@51.0.0.2:5060");
-        xlog(" to Keita $ru \n");
+        xlog(" Rewrited to $ru \n");
         t_on_failure("3");
         route(LOCATE);
-		#t_relay();
         exit;
     }
 }
@@ -264,7 +261,6 @@ failure_route[3] {
 }
 
 route[LOCATE]{
-
 	if(lookup("location")){
 		route(RELAY);
 		exit;
