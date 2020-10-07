@@ -1,6 +1,47 @@
-# Some kamcli commands
+# kamcli commands
+
+Les nouvelles commandes pour kamcli peuvent être implémentées sous forme de plugins, chaque commande étant implémentée dans un fichier situé dans `kamcli/commandes/`.
+
+Parmi les commandes implémentées :
+
+* **acc** - manage accounting records
+* **address** - manage permissions address records
+* **aliasdb** - manage database aliases
+* **avp** - manage avp user preferences
+* **config** - manage configuration file for kamcli
+* **db** - manage kamailio database content
+* **dialog** - manage active calls (dialog)
+* **dialplan** - manage dialplan records
+* **dispatcher** - manage load balancer (dispatcher)
+* **domain** - manage domain records
+* **dlgs** - manage dlgs module
+* **group** - manage group membership records (acl)
+* **htable** - manage htable module
+* **moni** - continuous refresh of the values for a list of statistics
+* **mtree** - manage memory trees (mtree)
+* **pike** - manage pike module
+* **pkg** - private memory (pkg) management
+* **ps** - print the details for kamailio running processes
+* **pstrap** - store runtime details and gdb backtraces for running processes with ps
+* **rpc** - interact with kamailio via jsonrpc control commands (alias of jsonrpc)
+* **rpcmethods** - return the list of available RPC methods (commands)
+* **rtpengine** - manage RTPEngine records and instances
+* **shm** - shared memory (shm) management
+* **shv** - manage $shv(name) variables
+* **shell** - run in interactive shell mode
+* **speeddial** - manage speed dial records
+* **srv** - server management commands (sockets, aliases, ...)
+* **stats** - get kamailio internal statistics
+* **subscriber** - manage SIP subscribers
+* **tcp** - management commands for TCP connections
+* **tls** - management commands for TLS profiles and connections
+* **trap** - store runtime details and gdb backtraces for running processes
+* **uacreg** - manage uac remote registration records
+* **ul** - manage user location records
+* **uptime** - print the uptime for kamailio instance
 
 
+### some commands
 
 
         kamcli -d --help
