@@ -120,3 +120,15 @@ Set Asterisk default user to asterisk:
     runuser = asterisk ; The user to run as.
     rungroup = asterisk ; The group to run as.
   
+
+Restart asterisk service after making the changes:
+
+     sudo systemctl restart asterisk
+      
+      
+ Enable asterisk service to start on system  boot:
+ 
+ 
+     sudo systemctl enable asterisk
+ 
+       
