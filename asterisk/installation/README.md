@@ -132,3 +132,23 @@ Restart asterisk service after making the changes:
      sudo systemctl enable asterisk
  
        
+Tchek status of asterisk
+
+     systemctl status asterisk
+     
+
+     ● asterisk.service - LSB: Asterisk PBX
+        Loaded: loaded (/etc/init.d/asterisk; generated; vendor preset: enabled)
+        Active: active (exited) since Fri 2020-10-09 14:48:02 UTC; 1min 19s ago
+          Docs: man:systemd-sysv-generator(8)
+
+     Oct 09 14:48:02 SERVEUR-5 systemd[1]: asterisk.service: Failed to reset devices.li
+     Oct 09 14:48:02 SERVEUR-5 systemd[1]: Starting LSB: Asterisk PBX...
+     Oct 09 14:48:02 SERVEUR-5 asterisk[5531]: Starting Asterisk PBX: asteriskUnable to
+     Oct 09 14:48:02 SERVEUR-5 asterisk[5531]: .
+     Oct 09 14:48:02 SERVEUR-5 systemd[1]: Started LSB: Asterisk PBX.
+     
+   
+Test to see if you can connect to Asterisk CLI:
+     
+     asterisk -rvv
