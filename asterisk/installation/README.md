@@ -1,5 +1,6 @@
 # Installation d'asterisk
 
+https://computingforgeeks.com/how-to-install-asterisk-16-with-freepbx-15-on-ubuntu-debian/
 
 
 ## Etape 1:  Recuperer asterisk depuuis le github
