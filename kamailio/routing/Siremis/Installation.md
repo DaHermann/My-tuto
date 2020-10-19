@@ -131,9 +131,40 @@ La première fois, vous êtes redirigé vers un assistant d'installation. Suivez
 
 ### Première Page
 
+Vous obtenez une page pour commencer le processus d'installation. 
 <img src="./img-siremis/siremis-install01.png" />
+
+### Étape 1
+
+La première étape indique le statut des éléments requis. Vous devez mettre à jour la configuration locale jusqu'à ce que tous les éléments soient vérifiés. 
+
 <img src="./img-siremis/siremis-install02.png" />
+
+### Étape 2
+
+Dans la deuxième étape, vous devez introduire les détails pour accéder à la base de données Kamailio et Siremis.
+
+Lorsque vous installez Siremis pour la première fois, vous devez probablement sélectionner les options suivantes (au bas du formulaire web) :
+
+* **Créer la base de données Siremis** - cette option crée la base de données "Siremis".
+* **Importer les données par défaut** - cette fonction permet d'importer les données initiales dans la base de données "siremis".
+* **Mise à jour de la base de données SIP** - elle met à jour la structure de la base de données Kamailio pour les modules de comptabilité et de graphiques
+* **Remplacer DB Config** - ceci met à jour le fichier de configuration de Siremis avec les détails pour accéder aux bases de données
+
+**NOTE IMPORTANTE : sachez que la case à cocher se trouve à droite du texte décrivant l'option. À moins que vous ne fassiez une personnalisation, la première installation nécessite que toutes les cases soient cochées.** 
 <img src="./img-siremis/siremis-install03.png" />
+
+### Étape 3
+
+Cette page présente un rapport d'état d'installation, indiquant si les répertoires requis ont un accès en écriture et un résumé des détails d'accès à la base de données. 
 <img src="./img-siremis/siremis-install04.png" />
+
+### Étape 4
+
+C'est la fin de l'installation, présentant le nom d'utilisateur et le mot de passe pour se connecter à Siremis. Cette page est automatiquement redirigée vers la page de connexion après un court laps de temps. 
 <img src="./img-siremis/siremis-install05.png" />
+
+### Page de connexion
+
+Après la première connexion, n'oubliez pas de mettre à jour le mot de passe pour l'utilisateur admin. 
 <img src="./img-siremis/siremis-3.3-login.png" />
