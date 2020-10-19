@@ -168,3 +168,15 @@ C'est la fin de l'installation, présentant le nom d'utilisateur et le mot de pa
 
 Après la première connexion, n'oubliez pas de mettre à jour le mot de passe pour l'utilisateur admin. 
 <img src="./img-siremis/siremis-3.3-login.png" />
+
+### Après l'installation
+
+supprimer le répertoire d'installation : `siremis/install`
+
+Si vous souhaitez exécuter à nouveau l'assistant d'installation :
+
+   répertoire de restauration : `siremis/install`
+   
+   supprimer le fichier : `siremis/install.lock`
+
+
