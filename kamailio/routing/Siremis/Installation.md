@@ -114,4 +114,26 @@ Vous devez créer un utilisateur MySQL qui a accès à la base de données Sirem
 
 	GRANT ALL PRIVILEGES ON siremis.* TO siremis@localhost IDENTIFIED BY 'siremisrw';
 
+Vous pouvez exécuter une instruction SQL via l'outil de ligne de commande mysql, en vous connectant au serveur MySQL en tant qu'utilisateur root.
 
+Cet utilisateur MySQL sera nécessaire plus tard au cours de l'installation, bien entendu, vous pouvez utiliser un utilisateur MySQL existant qui dispose de suffisamment de privilèges. 
+
+
+## Assistant d'installation sur le Web
+
+
+
+Une fois que vous avez effectué les étapes ci-dessus, accédez à la page web : 
+
+ http//:votre_ip/siremis/. 
+
+La première fois, vous êtes redirigé vers un assistant d'installation. Suivez les étapes. 
+
+### Première Page
+
+<img src="./img-siremis/siremis-install01.png" />
+<img src="./img-siremis/siremis-install02.png" />
+<img src="./img-siremis/siremis-install03.png" />
+<img src="./img-siremis/siremis-install04.png" />
+<img src="./img-siremis/siremis-install05.png" />
+<img src="./img-siremis/siremis-3.3-login.png" />
