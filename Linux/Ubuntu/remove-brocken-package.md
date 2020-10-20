@@ -1,10 +1,19 @@
 # Remove brocken package
 
 
+Here are the steps.
 
-Tape this command to :
+# 1
+Find your package in `/var/lib/dpkg/info`, for example using: `ls -l /var/lib/dpkg/info | grep <package>`
 
-    mv /var/lib/dpkg/info/PAQUET.* /tmp/
+# 2
+Move the package folder to another location, like suggested in the blog post I mentioned before.
+
+    sudo mv /var/lib/dpkg/info/<package>.* /tmp/
     
-    dpkg --remove --force-remove-reinstreq PAQUET
-  
+# 3   
+Run the following command to remove the package:
+
+    sudo dpkg --remove --force-remove-reinstreq <package>
+
+
