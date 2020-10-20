@@ -1,4 +1,4 @@
-# Remove brocken package
+# Remove broken package
 
 
 Here are the steps.
