@@ -1,9 +1,11 @@
 #-------------- Secure kamailio against attacks -----------------
 
 #----- Flood attacks ------
-!define WITH_ANTIFLOOD
+
+#!define WITH_ANTIFLOOD
 
 #----- Encripting the signaling -----
+
 #!define WITH_TLS
 
 /* La communication Tls est asynchrone par défaut, selon la configuration de la couche TCP du noyau. 
