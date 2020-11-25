@@ -6,27 +6,27 @@
           
           
           
-          ## If you got this installation's error, dont worry
-          
-          
-          Juste run these following commands solve the problem
-          
-          
-             * unstall **locales**
-              
-                    sudo apt-get purge locales
-                    
-             * then  reinstall it 
-              
-                    sudo apt-get install locales
-                    
-             * Now reconf it with this command
-             
-                   sudo dpkg-reconfigure locales
-                   
-            and chose
-           
-                en_US.UTF-8
-                    
-                    
-    Allright reboot your debian machine now. that is solved
+## If you got this installation's error, dont worry
+
+
+Juste run these following commands solve the problem
+
+
+   * unstall **locales**
+
+          sudo apt-get purge locales
+
+   * then  reinstall it 
+
+          sudo apt-get install locales
+
+   * Now reconf it with this command
+
+          sudo dpkg-reconfigure locales
+
+   and chose
+
+          en_US.UTF-8
+
+
+Allright reboot your debian machine now. that is solved
