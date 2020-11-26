@@ -16,3 +16,4 @@
         sudo apt install net-tools dphys-swapfile
 
         sudo apt install 3cxpbx
+
