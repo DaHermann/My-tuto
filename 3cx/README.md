@@ -11,9 +11,9 @@
 
         echo "deb http://downloads-global.3cx.com/downloads/debian stretch main" | tee /etc/apt/sources.list.d/3cxpbx.list
 
-        sudo apt update
+        apt update
 
-        sudo apt install net-tools dphys-swapfile
+        apt install net-tools dphys-swapfile
 
-        sudo apt install 3cxpbx
+        apt install 3cxpbx
 
