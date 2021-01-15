@@ -1,7 +1,9 @@
 # 3cx PBX tutorial
 
 
-## Installation de 3cx
+## Installation de 3cx sur debian
+
+liens vers le site officiel : https://www.3cx.fr/docs/manuel/installation-linux/
 
 
 ###  Connectez-vous à la machine via SSH et entrez ces commandes en utilisant sudo :
