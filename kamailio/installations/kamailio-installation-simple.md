@@ -41,13 +41,35 @@
      sudo mysql -u root -p
     
 
-  ### Etape 2: Télécharger et configurer Kamailio
+
+  ### Etape 2: Ajouter le dépôt Kamailio apt
+  
+  Ajoutez le dépôt Kamailio suivant à utiliser pour l'installation du serveur proxy SIP Kamailio.
+  
+  
+      wget -O- http://deb.kamailio.org/kamailiodebkey.gpg | sudo apt-key add -
+      
+ Ajoutez ensuite les lignes de dépôt dans votre fichier /etc/apt/sources.list en fonction de la version de Kamailio de votre choix.
+ J'ajouterai un dépôt pour la dernière version à partir de ce moment - 5.4
+ 
+ **Pour Ubuntu 20.04/18.04**
+ 
+      sudo tee /etc/apt/sources.list.d/kamailio.list<<EOF
+      deb http://cz.archive.ubuntu.com/ubuntu bionic main
+      deb     http://deb.kamailio.org/kamailio54 xenial main
+      deb-src http://deb.kamailio.org/kamailio54 xenial main
+      EOF
+
+La liste des dépôts APT et des systèmes d'exploitation associés est disponible à l'adresse suivante : http://deb.kamailio.org
+
+ 
+  ### Etape 3: Télécharger et configurer Kamailio
   
     
    * Mettez à jour les packages d'ubuntu et install kamailio
    
     sudo apt update
-    sudo apt install kamailio kamailio-mysql-modules kamailio-websocket-modules
+    sudo apt install kamailio kamailio-mysql-modules kamailio-websocket-modules kamailio-tls-modules
     
     
    Affichez la version de kamailio en faisant:
