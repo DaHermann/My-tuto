@@ -49,7 +49,7 @@
   
       wget -O- http://deb.kamailio.org/kamailiodebkey.gpg | sudo apt-key add -
       
- Ajoutez ensuite les lignes de dépôt dans votre fichier /etc/apt/sources.list en fonction de la version de Kamailio de votre choix.
+ Ajoutez ensuite les lignes de dépôt dans votre fichier `/etc/apt/sources.list` en fonction de la version de Kamailio de votre choix.
  J'ajouterai un dépôt pour la dernière version à partir de ce moment - 5.4
  
  **Pour Ubuntu 20.04/18.04**
