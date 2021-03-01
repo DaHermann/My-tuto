@@ -44,9 +44,11 @@
 
   ### Etape 2: Ajouter le dépôt Kamailio apt
   
-  Ajoutez le dépôt Kamailio suivant à utiliser pour l'installation du serveur proxy SIP Kamailio.
+  Assurez vouus que gnupg,gnupg1 et gnupg2 ne sont installés.
+  Puis ajoutez le dépôt Kamailio suivant à utiliser pour l'installation du serveur proxy SIP Kamailio.
   
-      wget -O- http://deb.kamailio.org/kamailiodebkey.gpg | sudo apt-key add -
+  
+      wget -O- http://deb.kamailio.org/kamailiodebkey.gpg | apt-key add -
       
  Ajoutez ensuite les lignes de dépôt dans votre fichier `/etc/apt/sources.list` en fonction de la version de Kamailio de votre choix.
  
