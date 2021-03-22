@@ -107,11 +107,11 @@ https://computingforgeeks.com/how-to-install-asterisk-16-with-freepbx-15-on-ubun
 
      make config
      
-## Etape 8:
+## Etape 9:
 
      ldconfig
     
-## Etape 9: Create Asterisk User
+## Etape 10: Create Asterisk User
 
     
     sudo groupadd asterisk
