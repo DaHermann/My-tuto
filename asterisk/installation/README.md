@@ -97,8 +97,21 @@ https://computingforgeeks.com/how-to-install-asterisk-16-with-freepbx-15-on-ubun
        + doxygen installed on your local system    +
        +-------------------------------------------+
  
+ 
+## Etape 7: 
+
+     make samples
+     
+
+## Etape 8: 
+
+     make config
+     
+## Etape 8:
+
+     ldconfig
     
-## Etape 7: Create Asterisk User
+## Etape 9: Create Asterisk User
 
     
     sudo groupadd asterisk
