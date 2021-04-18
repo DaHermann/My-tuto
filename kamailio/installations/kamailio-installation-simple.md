@@ -69,7 +69,7 @@ La liste des dépôts APT et des systèmes d'exploitation associés est disponib
    * Mettez à jour les packages d'ubuntu et install kamailio
    
     sudo apt update
-    sudo apt install kamailio kamailio-mysql-modules kamailio-websocket-modules kamailio-tls-modules kamailio-mqtt-modules kamailio-carrierroute-modules kamailio-phonenum-modules kamailio-mongodb-modules kamailio-json-modules kamailio-presence-modules kamailio-radius-modules kamailio-ldap-modules kamailio-kazoo-modules kamailio-extra-moduleskamailio-erlang-modules kamailio-cnxcc-modules kamailio-extra-modules 
+    sudo apt install kamailio kamailio-mysql-modules kamailio-websocket-modules kamailio-tls-modules kamailio-carrierroute-modules kamailio-phonenum-modules kamailio-mongodb-modules kamailio-json-modules kamailio-presence-modules kamailio-radius-modules kamailio-ldap-modules kamailio-kazoo-modules kamailio-extra-modules kamailio-erlang-modules kamailio-cnxcc-modules kamailio-extra-modules 
     
     
    Affichez la version de kamailio en faisant:
