@@ -76,7 +76,13 @@ dahdi-complete	| https://downloads.asterisk.org/pub/telephony/dahdi-linux-comple
 
      cd asterisk-18.5.0/
     
-      
+     ./configure
+     
+     make menuselect
+     
+     make
+     
+     make install
       
       
       
