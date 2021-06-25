@@ -9,3 +9,9 @@ libpri |	https://downloads.asterisk.org/pub/telephony/libpri/libpri-current.tar.
 dahdi-linux	| https://downloads.asterisk.org/pub/telephony/dahdi-linux/dahdi-linux-current.tar.gz
 dahdi-tools |	https://downloads.asterisk.org/pub/telephony/dahdi-tools/dahdi-tools-current.tar.gz
 dahdi-complete	| https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
+
+Preuis d'installation 
+
+  make
+  gcc
+  libelf-dev, libelf-devel or elfutils-libelf-devel
