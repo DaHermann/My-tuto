@@ -46,9 +46,36 @@ dahdi-complete	| https://downloads.asterisk.org/pub/telephony/dahdi-linux-comple
          
          ./contrib/scripts/install_prereq install
       
+ ## Installer Dahdi
  
-      
-      
+     cd ../
+
+     cd dahdi-linux-complete-3.1.0+3.1.0/
+
+     make 
+
+     make install
+
+     make install-config
+         
+         
+ ## Installer Libpri
+ 
+        
+     cd ../
+
+     cd libpri-1.6.0/
+
+     make 
+
+     make install
+         
+   ## Installer Asterisk
+   
+     cd ../
+
+     cd asterisk-18.5.0/
+    
       
       
       
