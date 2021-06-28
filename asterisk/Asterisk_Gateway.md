@@ -1,4 +1,4 @@
-#What Is A VoIP Gateway?
+# What Is A VoIP Gateway?
 
 A VoIP gateway is used to build a bridge between the worlds of legacy telephony and the VoIP.  Gateways are typically used to connect legacy phone systems (PBXs or ACDs) with VoIP resources, or to connect modern VoIP phone systems with legacy phone lines.
 
