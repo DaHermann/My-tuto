@@ -104,8 +104,9 @@ dahdi-complete	| https://downloads.asterisk.org/pub/telephony/dahdi-linux-comple
         $$$$7.                       $$  (TM)     
          $$$$$$$.           .7$$$$$$  $$      
            $$$$$$$$$$$$7$$$$$$$$$.$$$$$$      
-             $$$$$$$$$$$$$$$$.                
-En suite
+             $$$$$$$$$$$$$$$$. 
+             
+En suite : 
 
      
      make menuselect
@@ -146,7 +147,14 @@ En suite
        + doxygen installed on your local system    +
        +-------------------------------------------+
  
- 
+ Puis : 
+
+     make samples
+
+     make config
+     
+     ldconfig
+    
  ## Creation d'un utilisateur Asterisk 
 
     
