@@ -147,7 +147,7 @@ En suite
        +-------------------------------------------+
  
  
- ## Creation d'un Asterisk User
+ ## Creation d'un utilisateur Asterisk 
 
     
     sudo groupadd asterisk
@@ -158,7 +158,7 @@ En suite
     sudo chown -R asterisk.asterisk /usr/lib/asterisk
 
 
-Set Asterisk default user to asterisk:
+## Définir asterisk comme utilisateur par défaut d'Asterisk:
 
     $ sudo vim /etc/default/asterisk
     
@@ -171,18 +171,18 @@ Set Asterisk default user to asterisk:
     rungroup = asterisk ; The group to run as.
   
 
-Restart asterisk service after making the changes:
+## Redémarrez le service asterisk après avoir effectué les changements:
 
      sudo systemctl restart asterisk
       
       
- Enable asterisk service to start on system  boot:
+ ## Permettre au service asterisk de démarrer au démarrage du système:
  
  
      sudo systemctl enable asterisk
  
        
-Tchek status of asterisk
+## Vérifier l'état de l'astérix
 
      systemctl status asterisk
      
@@ -199,7 +199,7 @@ Tchek status of asterisk
      Oct 09 14:48:02 SERVEUR-5 systemd[1]: Started LSB: Asterisk PBX.
      
    
-Test to see if you can connect to Asterisk CLI:
+## Testez pour voir si vous pouvez vous connecter à Asterisk CLI:
      
      asterisk -rvv
 
