@@ -158,22 +158,22 @@ En suite :
  ## Creation d'un utilisateur Asterisk 
 
     
-    sudo groupadd asterisk
-    sudo useradd -r -d /var/lib/asterisk -g asterisk asterisk
-    sudo usermod -aG audio,dialout asterisk
-    sudo chown -R asterisk.asterisk /etc/asterisk
-    sudo chown -R asterisk.asterisk /var/{lib,log,spool}/asterisk
-    sudo chown -R asterisk.asterisk /usr/lib/asterisk
+    groupadd asterisk
+    useradd -r -d /var/lib/asterisk -g asterisk asterisk
+    usermod -aG audio,dialout asterisk
+    chown -R asterisk.asterisk /etc/asterisk
+    chown -R asterisk.asterisk /var/{lib,log,spool}/asterisk
+    chown -R asterisk.asterisk /usr/lib/asterisk
 
 
 ## Définir asterisk comme utilisateur par défaut d'Asterisk:
 
-    $ sudo vim /etc/default/asterisk
+    vim /etc/default/asterisk
     
     AST_USER="asterisk"
     AST_GROUP="asterisk"
 
-    $ sudo vim /etc/asterisk/asterisk.conf
+    vim /etc/asterisk/asterisk.conf
     
     runuser = asterisk ; The user to run as.
     rungroup = asterisk ; The group to run as.
@@ -181,13 +181,13 @@ En suite :
 
 ## Redémarrez le service asterisk après avoir effectué les changements:
 
-     sudo systemctl restart asterisk
+     systemctl restart asterisk
       
       
  ## Permettre au service asterisk de démarrer au démarrage du système:
  
  
-     sudo systemctl enable asterisk
+     systemctl enable asterisk
  
        
 ## Vérifier l'état de l'astérix
