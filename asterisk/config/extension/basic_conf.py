@@ -1,4 +1,4 @@
-#@@@@@@@@@@@@@@@@@@@@@ BASIC EXTENSION.CONF CONFIGURATION to MAKE CALL @@@@@@@@@@@@@@@@@@@@@@@@@#
+#@@@@@@@@@@@@@@@@@@@@@ BASIC extension.conf CONFIGURATION to MAKE CALL @@@@@@@@@@@@@@@@@@@@@@@@@#
 
 
 [general]
