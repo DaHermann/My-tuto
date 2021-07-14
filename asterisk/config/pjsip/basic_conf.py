@@ -1,4 +1,4 @@
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Simple Configuration of extenstion.conf @@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Simple Configuration of pjsip.conf @@@@@@@@@@@@@@
 
 
 
