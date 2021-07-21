@@ -33,3 +33,16 @@ Le plan d'appel dans extensions.conf est organisé en sections, appelées contex
 La syntaxe d'un contexte est exactement la même que celle de tout autre titre de section dans les fichiers de configuration. Il suffit de placer le nom du contexte entre crochets. Par exemple, nous définissons ici un contexte appelé "nan" et un autre appelé "users".
 **[nan]** 
 **[users]** 
+
+### Extensions du plan de numérotation
+Dans chaque contexte, on peut définir une ou plusieurs extensions. Une extension est simplement un ensemble d'actions nommées. Asterisk exécutera chaque action, en séquence, lorsque le numéro de l'extension est composé. La syntaxe d'une extension est la suivante :
+
+        exten => numero,priorité,application([parametre[,parametre2...]])
+        
+Exemple:
+
+        exten => 6001,1,Dial(PJSIP/demo-alice,20)
+        
+        
+        
+        
