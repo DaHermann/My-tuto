@@ -31,5 +31,5 @@ Le plan d'appel dans extensions.conf est organisé en sections, appelées contex
 
 ### Contextes Dialplan
 La syntaxe d'un contexte est exactement la même que celle de tout autre titre de section dans les fichiers de configuration. Il suffit de placer le nom du contexte entre crochets. Par exemple, nous définissons ici un contexte appelé "nan" et un autre appelé "users".
-* **[nan]** 
-* **[users]** 
+**[nan]** 
+**[users]** 
