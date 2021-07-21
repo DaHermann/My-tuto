@@ -6,6 +6,8 @@ Pour configurer un appel avec asterisk, deux fichers d'asterisk seront utilisés
 
 ## configuration de pjsip.conf
 
+pjsip.conf est un fichier texte plat composé de sections comme la plupart des fichiers de configuration utilisés avec Asterisk. Chaque section définit la configuration d'un objet de configuration dans res_pjsip ou un module associé.
+
 ` pjsip.conf ` est le fichier où est configuré les diferents utilisateurs:
 
 * **[Phone-1]** :  est le nom d'utilisateur ou le nom du compte.
@@ -13,6 +15,8 @@ Pour configurer un appel avec asterisk, deux fichers d'asterisk seront utilisés
 * **host = dynamic** : point de terminaison dont a nessecaire pour l'enregistrement
 * **context = internal_context** : debute un contexte dans extension.conf
 * **secret = 45HJHBHb@hd/#** mot de passe du compte
+
+Chaque section comporte une ou plusieurs options de configuration auxquelles on peut attribuer une valeur en utilisant un signe égal suivi d'une valeur.Ces options et valeurs constituent la configuration d'un composant particulier de la fonctionnalité fournie par les modules Asterisk respectifs de l'objet de configuration.
 
 ### Exemple:
 
@@ -22,6 +26,8 @@ Pour configurer un appel avec asterisk, deux fichers d'asterisk seront utilisés
     context = nan
     etc...
     
+Chaque section possède une option de type qui définit le type de section à configurer. Vous le verrez dans chaque exemple de section de configuration ci-dessous.
+
 https://github.com/DaHermann/My-tuto/blob/master/asterisk/config/pjsip/basic_pjsip_conf.py
  
  
@@ -43,6 +49,6 @@ Exemple:
 
         exten => 6001,1,Dial(PJSIP/demo-alice,20)
         
-        
+Dans ce cas, le numéro de poste est 6001, le numéro de priorité est 1, l'application est Dial(), et les deux paramètres de l'application sont PJSIP/demo-alice et 20.        
         
         
