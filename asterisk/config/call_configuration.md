@@ -22,7 +22,7 @@ Pour configurer un appel avec asterisk, deux fichers d'asterisk seront utilisés
     context = nan
     etc...
     
- asterisk/config/pjsip/basic_pjsip_conf.py
+https://github.com/DaHermann/My-tuto/blob/master/asterisk/config/pjsip/basic_pjsip_conf.py
  
  
 ## configuration de extension.conf
