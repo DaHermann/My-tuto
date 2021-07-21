@@ -36,8 +36,8 @@ https://github.com/DaHermann/My-tuto/blob/master/asterisk/config/pjsip/basic_pjs
 Le plan d'appel dans extensions.conf est organisé en sections, appelées contextes. Les contextes sont l'unité organisationnelle de base du plan d'appel, et en tant que tels, ils maintiennent les différentes sections du plan d'appel indépendantes les unes des autres. Vous pouvez utiliser les contextes pour séparer les fonctionnalités et les caractéristiques, renforcer les limites de sécurité entre les différentes parties de notre plan d'appel, ainsi que pour fournir différentes classes de service à des groupes d'utilisateurs.
 
 ### Contextes Dialplan
-La syntaxe d'un contexte est exactement la même que celle de tout autre titre de section dans les fichiers de configuration. Il suffit de placer le nom du contexte entre crochets. Par exemple, nous définissons ici un contexte appelé "nan" et un autre appelé "users".
-**[nan]** 
+La syntaxe d'un contexte est exactement la même que celle de tout autre titre de section dans les fichiers de configuration. Il suffit de placer le nom du contexte entre crochets. Par exemple, nous définissons ici un contexte appelé "internal_context" et un autre appelé "users".
+**[internal_context]** 
 **[users]** 
 
 ### Extensions du plan de numérotation
@@ -51,4 +51,8 @@ Exemple:
         
 Dans ce cas, le numéro de poste est 6001, le numéro de priorité est 1, l'application est Dial(), et les deux paramètres de l'application sont PJSIP/demo-alice et 20.        
         
-        
+https://github.com/DaHermann/My-tuto/blob/master/asterisk/config/extension/basic_conf.py
+
+
+**NB :**
+Dans `pjsip.conf`, le **context = internal_context** correspond au nom de context **[internal_context]** dans `extension.conf`.
