@@ -7,7 +7,7 @@ type=transport
 protocol=udp
 bind=0.0.0.0
 
-;===============103
+;===============102
 
 [102]
 type=endpoint
@@ -24,7 +24,7 @@ auth_type=userpass
 password=secret
 username=102
 
-[103]
+[102]
 type=aor
 max_contacts=1
 contact=sip:102@192.168.70.88:5060
