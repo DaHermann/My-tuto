@@ -28,6 +28,7 @@ Chaque section comporte une ou plusieurs options de configuration auxquelles on 
     
 Chaque section possède une option de type qui définit le type de section à configurer. Vous le verrez dans chaque exemple de section de configuration ci-dessous.
 
+Liens de configuration:
 https://github.com/DaHermann/My-tuto/blob/master/asterisk/config/pjsip/basic_pjsip_conf.py
  
  
@@ -50,7 +51,8 @@ Exemple:
         exten => 6001,1,Dial(PJSIP/demo-alice,20)
         
 Dans ce cas, le numéro de poste est 6001, le numéro de priorité est 1, l'application est Dial(), et les deux paramètres de l'application sont PJSIP/demo-alice et 20.        
-        
+
+Liens de configuration:
 https://github.com/DaHermann/My-tuto/blob/master/asterisk/config/extension/basic_conf.py
 
 
