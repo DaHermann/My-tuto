@@ -6,7 +6,7 @@
     exten => _1X[1-9],1,NoOp(Call from $(CallerID(number)) -> ${EXTEN})
     same => n,Dial(PJSIP/${EXTEN},8)
     same => n,set(${CHANNEL(language)=fr})
-    same => n,Answer()
+    ;same => n,Answer()
     same => n,VoiceMail(${EXTEN})
     same => n,Hangup()
 
