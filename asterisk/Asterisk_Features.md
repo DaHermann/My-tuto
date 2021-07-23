@@ -63,3 +63,25 @@ La liste ci-dessous comprend un échantillon des fonctions disponibles dans Aste
  * Remote Office Support
  * Roaming Extensions
  * Route by Caller ID
+
+## Fonctions d'appel
+
+ * SMS Messaging
+ * Spell / Say
+ * Streaming Hold Music
+ * Supervised Transfer
+ * Talk Detection
+ * Text-to-Speech (via Festival)
+ * Three-way Calling
+ * Time and Date
+ * Transcoding
+ * Trunking
+ * VoIP Gateways
+ * Voicemail:
+
+   - Visual Indicator for Message Waiting
+   - Stutter Dialtone for Message Waiting
+   - Voicemail to email
+   - Voicemail Groups
+   - Web Voicemail Interface
+ * Zapateller
