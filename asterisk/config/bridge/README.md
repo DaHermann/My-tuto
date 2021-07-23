@@ -1,6 +1,6 @@
 # Configure Bridge
 
-## IN `/confbrigde.conf`
+## `confbrigde.conf`
 
     ; --- ConfBridge User Profile Options ---
 
@@ -33,7 +33,7 @@
     
     
     
-    ## IN `extension.conf`
+  ## `extension.conf`
     
         ;===================================== VoiceMailMain
         
