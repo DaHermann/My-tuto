@@ -87,73 +87,73 @@ La liste ci-dessous comprend un échantillon des fonctions disponibles dans Aste
  * Zapateller
 
 ## Computer-Telephony Integration
-Asterisk Gateway Interface (AGI)
-Asterisk Manager Interface (AMI)
-Asterisk REST Interface (ARI)
-Outbound Call Spooling
+ * Asterisk Gateway Interface (AGI)
+ * Asterisk Manager Interface (AMI)
+ * Asterisk REST Interface (ARI)
+ * Outbound Call Spooling
 
 ## Scalability
-TDMoE (Time Division Multiplex over Ethernet)
-Allows direct connection of Asterisk PBX
-Zero latency
-Uses commodity Ethernet hardware
-Voice-over IP
-Allows for integration of physically separate installations
-Uses commonly deployed data connections
-Allows a unified dialplan across multiple offices
+ * TDMoE (Time Division Multiplex over Ethernet)
+ * Allows direct connection of Asterisk PBX
+ * Zero latency
+ * Uses commodity Ethernet hardware
+ * Voice-over IP
+ * Allows for integration of physically separate installations
+ * Uses commonly deployed data connections
+ * Allows a unified dialplan across multiple offices
 
-Speech
-Cepstral TTS
-Lumenvox ASR
+##Speech
+ * Cepstral TTS
+ * Lumenvox ASR
 
 ## Codecs
-ADPCM
-CELT (pass through)
-G.711 (A-Law & μ-Law)
-G.719 (pass through)
-G.722
-G.722.1 licensed from Polycom®
-G.722.1 Annex C licensed from Polycom®
-G.723.1 (pass through)
-G.726
-G.729a
-GSM
-iLBC
-Linear
-LPC-10
-Speex
-SILK
+ * ADPCM
+ * CELT (pass through)
+ * G.711 (A-Law & μ-Law)
+ * G.719 (pass through)
+ * G.722
+ * G.722.1 licensed from Polycom®
+ * G.722.1 Annex C licensed from Polycom®
+ * G.723.1 (pass through)
+ * G.726
+ * G.729a
+ * GSM
+ * iLBC
+ * Linear
+ * LPC-10
+ * Speex
+ * SILK
 
 ## VoIP Protocols
-Google Talk
-H.323
-IAX™ (Inter-Asterisk eXchange)
-Jingle/XMPP
-MGCP (Media Gateway Control Protocol
-SCCP (Cisco® Skinny®)
-SIP (Session Initiation Protocol)
-UNIStim
+ * Google Talk
+ * H.323
+ * IAX™ (Inter-Asterisk eXchange)
+ * Jingle/XMPP
+ * MGCP (Media Gateway Control Protocol
+ * SCCP (Cisco® Skinny®)
+ * SIP (Session Initiation Protocol)
+ * UNIStim
 
 ## Traditional Telephony Protocols
-E&M
-E&M Wink
-Feature Group D
-FXS
-FXO
-GR-303
-Loopstart
-Groundstart
-Kewlstart
-MF and DTMF support
-Robbed-bit Signaling (RBS) Types
-MFC-R2 (Not supported. However, a patch is available)
+ * E&M
+ * E&M Wink
+ * Feature Group D
+ * FXS
+ * FXO
+ * GR-303
+ * Loopstart
+ * Groundstart
+ * Kewlstart
+ * MF and DTMF support
+ * Robbed-bit Signaling (RBS) Types
+ * MFC-R2 (Not supported. However, a patch is available)
 
 ## ISDN Protocols
-AT&T 4ESS
-EuroISDN PRI and BRI
-Lucent 5ESS
-National ISDN 1
-National ISDN 2
-NFAS
-Nortel DMS100
-Q.SIG
+ * AT&T 4ESS
+ * EuroISDN PRI and BRI
+ * Lucent 5ESS
+ * National ISDN 1
+ * National ISDN 2
+ * NFAS
+ * Nortel DMS100
+ * Q.SIG
