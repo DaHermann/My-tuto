@@ -35,7 +35,7 @@
     
   ## `extension.conf`
     
-        ;===================================== VoiceMailMain
+        ;===================================== brigde config
         
         exten => 200,1,NoOp(## Bridge ##)
         same => n,ConfBridge(1,default_bridge,default_user)
