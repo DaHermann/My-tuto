@@ -38,3 +38,10 @@ Ready to install Mysql:
 ### Step 4 – Testing MySQL
 
     mysqladmin -u root -p version
+    
+    
+    
+    
+Tuorial's link : 
+
+      https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-debian-10
