@@ -44,4 +44,4 @@ Ready to install Mysql:
     
 Tuorial's link : 
 
-      https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-debian-10
+https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-debian-10
