@@ -56,8 +56,42 @@ ODBC is an open specification for providing application developers with a predic
 
 ## Download and install unxODBC
 
+      apt update
+      
+      apt upgrade
+      
+      apt install build-essential
+
+### Downloading unxODBC
 
 
+      wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.9.tar.gz
+ 
+ then : 
+ 
+      tar xvzf unixODBC-2.3.9.tar.gz
+      
+      cd unixODBC-2.3.9/
+      
+      
+### Installing unxODBC
+
+
+       ./configure --prefix=/usr/local/unixODBC
+       
+       make
+       
+       make install
+       
+After installing :
+
+      cd /usr/local/unixODBC/bin/
+      
+      ls
+      
+unixODBC Tutorials link:
+
+https://www.osradar.com/install-odbc-ubuntu-debian/
 
 
 
