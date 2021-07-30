@@ -45,3 +45,21 @@ Ready to install Mysql:
 Tuorial's link : 
 
 https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-debian-10
+
+
+# Mysql ODBC connector
+
+## Download and insatall
+
+link : 
+https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc-setup_8.0.26-1debian10_amd64.deb
+
+
+### Downlad
+
+      wget https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc-setup_8.0.26-1debian10_amd64.deb
+      
+### Installing 
+
+      apt install mysql-connector-odbc-setup*
+      
