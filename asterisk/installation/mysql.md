@@ -49,7 +49,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql
 
 # Mysql ODBC connector
 
-## Download and insatall
+## Download and install
 
 link : 
 https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc-setup_8.0.26-1debian10_amd64.deb
