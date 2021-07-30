@@ -47,9 +47,21 @@ Tuorial's link :
 https://www.digitalocean.com/community/tutorials/how-to-install-the-latest-mysql-on-debian-10
 
 
-# Mysql ODBC connector
+# Install unxODBC et Mysql ODBC-connector
 
-## Download and install
+What is ODBC?
+
+ODBC is an open specification for providing application developers with a predictable API with which to access Data Sources. Data Sources include SQL Servers and any Data Source with an ODBC Driver. 
+
+
+## Download and install unxODBC
+
+
+
+
+
+
+## Download and install Mysql ODBC-connector
 
 link : 
 https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc-setup_8.0.26-1debian10_amd64.deb
