@@ -107,5 +107,5 @@ https://dev.mysql.com/get/Downloads/Connector-ODBC/8.0/mysql-connector-odbc-setu
       
 ### Installing 
 
-      apt install mysql-connector-odbc-setup*
+      apt install ./mysql-connector-odbc-setup*
       
