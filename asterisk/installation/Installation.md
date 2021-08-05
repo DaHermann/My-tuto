@@ -172,6 +172,8 @@ En suite :
     
     AST_USER="asterisk"
     AST_GROUP="asterisk"
+    
+Puis
 
     vim /etc/asterisk/asterisk.conf
     
@@ -193,7 +195,8 @@ En suite :
 ## Vérifier l'état de l'astérix
 
      systemctl status asterisk
-     
+  
+resultat
 
      ● asterisk.service - LSB: Asterisk PBX
         Loaded: loaded (/etc/init.d/asterisk; generated; vendor preset: enabled)
@@ -209,7 +212,7 @@ En suite :
    
 ## Testez pour voir si vous pouvez vous connecter à Asterisk CLI:
      
-     asterisk -rvv
+     asterisk -rvvv
 
       
       
