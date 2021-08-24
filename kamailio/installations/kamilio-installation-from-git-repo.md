@@ -26,6 +26,12 @@ Connectez vous en tant que root et install les packages requis pour l'installati
   
   * **libpcre3-dev**: `apt install libpcre3-dev`
   
+  * **unixodbc-dev pour ODBC ODBC** : `apt install unixodbc-dev`
+  
+  * **Pour websocket** : `apt-get install libunistring-dev` and `apt install libwebsocketpp-dev`
+
+
+  
   
 ## Etape 1: MySQL ou MariaDB Server
 
