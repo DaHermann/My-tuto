@@ -1,29 +1,25 @@
 # VOICEMAIL CONFIGURATION
+;=========================================== Projet Asterisk 1 VOICEMAIL ===================================
 
-## extension.conf
+;=================== Boite vocal de l'administration ==============
+[adminMail] 
+1001 => 000,Sip phone 1
+1002 => 000,Sip phone 2
+1003 => 000,Sip phone 3
+1004 => 000,Sip phone 4
 
-    [work]
-    exten => _1X[1-9],1,NoOp(Call from $(CallerID(number)) -> ${EXTEN})
-    same => n,Dial(PJSIP/${EXTEN},8)
-    same => n,set(${CHANNEL(language)=fr})
-    ;same => n,Answer()
-    same => n,VoiceMail(${EXTEN})
-    same => n,Hangup()
+;=================== Boite vocal du dévéloppement ==============
+[devMail]
+301 => 000,Sip phone 1
+302 => 000,Sip phone 2
+303 => 000,Sip phone 3
+304 => 000,Sip phone 4
+305 => 000,Sip phone 5
+306 => 000,Sip phone 6
 
+;=================== Boite vocal de la securité reseau ==============
+[secuMail]
+7001 => 000,Sip phone 1
+7002 => 000,Sip phone 2
+7003 => 000,Sip phone 3
 
-    ;===================================== VoiceMailMain
-    exten => _100,1,NoOp(## VoiceMail Access ##)
-    same => n,Set(CHANNEL(language)=fr)
-    same => n,VoiceMailMain(${EXTEN},s)
-    same => n,Hangup()
-
-
-## voicemail.conf
-
-
-    [default]
-    ; Note: The rest of the system must reference mailboxes defined here as mailbox@default.
-    101 => 1234
-    102 => 1234,Sip phone 1
-    103 => 1234,Sip phone 2
-    104 => 1234,Linphone
