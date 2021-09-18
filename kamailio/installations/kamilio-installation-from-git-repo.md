@@ -86,7 +86,7 @@ Installons le avec la cmd suivante:
 
   On autre altenative est d'ajouter la variable *include_modules* à la compilation, lors de la construction des fichiers *Make cfg*:
 
-    make include_modules="db_mysql dialplan" cfg
+    make include_modules="db_mysql dialplan tls websocket" cfg
     
     
 ## Etape 4: Compiler Kamailio
