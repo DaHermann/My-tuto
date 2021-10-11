@@ -5,6 +5,7 @@
   *  1. Before you begin with installing KVM, check if your CPU supports hardware virtualization: 
 
           egrep -c '(vmx|svm)' /proc/cpuinfo
+          
   *  2. Now, check if your system can use KVM acceleration by typing:
 
           sudo kvm-ok
