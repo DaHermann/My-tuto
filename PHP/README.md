@@ -46,7 +46,14 @@ The different types of programming languages are discussed below.
 
 ### Types of Programming Languages
 
-  <a href="Programming_vocabulary.md" > See Programming Vacabulary </a>
+  **See Programming Vacabulary** <a href="Programming_vocabulary.md" > here </a>
+  
+  
+### What is PHP ?
+
+
+
+### Why use PHP ?
 
 
 
