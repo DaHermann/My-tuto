@@ -52,13 +52,36 @@ The different types of programming languages are discussed below.
   
 ### What is PHP ?
 
+**PHP** (recursive acronym for PHP: **Hypertext Preprocessor**) is a widely-used open source general-purpose scripting language that is especially suited for **web development** and can be embedded into HTML.
 
 
 ### Why use PHP ?
 
 
+# PHP Language Basics
+
+## Syntax
 
 
+## Quotes
+
+
+## Comments
+
+
+## Special Characters
+
+
+## Data Types
+
+
+## Precedence
+
+
+## Symbols
+
+
+# PHP Identifiers
 
 
 
