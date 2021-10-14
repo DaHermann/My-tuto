@@ -16,4 +16,4 @@ Most programming languages consist of instructions for computers.
 ### Types of Programming Languages
 
 The different types of programming languages are discussed below.
-<img src="IMG/programming-paradigms.png" alt="image paradigms" width="400" heigth="400" />
+<img src="IMG/programming-paradigms.png" alt="image paradigms" width="1000" heigth="500" />
