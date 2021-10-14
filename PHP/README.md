@@ -42,3 +42,16 @@ The different types of programming languages are discussed below.
   These types of languages let programmers  make declarative statements and then allow the machine to reason about the consequences of those statements. In a sense, this language doesn’t tell the computer how to do something, but employing restrictions on what it must consider doing.
 
   To call these groups ” types  of language ” is really a bit confusing. It’s easy to program in an object-oriented style in C language. In truth, most of the languages include ideas and features from various domains, which only helps to increase the  usefulness of these types of languages. Nevertheless, most of the programming languages do not best in all styles of programming.
+  
+
+### Types of Programming Languages
+
+  <a href="Programming_vocabulary.md" > See Programming Vacabulary </a>
+
+
+
+
+
+
+
+  
