@@ -48,16 +48,16 @@ Installons le avec la cmd suivante:
 
   * Creer un dossier et se placer à l'interieur de ce dossier
   
-        mkdir -p /usr/local/src/kamailio-5.3
+        mkdir -p /usr/local/src/kamailio-5.5
         
-        cd /usr/local/src/kamailio-5.3
+        cd /usr/local/src/kamailio-5.5
         
         
   * Télécharger des sources de Git en utilisant les cmd suivante
   
         git clone --depth 1 --no-single-branch https://github.com/kamailio/kamailio kamailio
         cd kamailio
-        git checkout -b 5.3 origin/5.3
+        git checkout -b 5.5 origin/5.5
         
   **NB** : si votre version de client git ne prend pas en charge le paramètre de ligne de commande *--no-single-branch*, supprimez-le simplement.
   
@@ -283,14 +283,14 @@ Installons le avec la cmd suivante:
     
    Le processus de maintenance est très simple pour le moment. Vous devez être root et exécuter les commandes suivantes:
    
-     cd /usr/local/src/kamailio-5.3/kamailio
+     cd /usr/local/src/kamailio-5.5/kamailio
      git pull origin
      make all
      make install
      /etc/init.d/kamailio restart
      
    
-  Vous avez maintenant la dernière version de Kamailio v5.3.x en cours d'exécution sur votre système.
+  Vous avez maintenant la dernière version de Kamailio v5.5.x en cours d'exécution sur votre système.
   
   
   
