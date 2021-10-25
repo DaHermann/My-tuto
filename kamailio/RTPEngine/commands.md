@@ -1,6 +1,0 @@
-# RTPEngine commands
-
-
-
-## RTPEngine Deamon
-
