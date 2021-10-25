@@ -2,7 +2,7 @@
 
 
 
-# 1) Clone the RTPEngine fro github And get into rtpengine folder
+## 1) Clone the RTPEngine fro github And get into rtpengine folder
 
 
       git clone https://github.com/sipwise/rtpengine.git
@@ -10,12 +10,12 @@
       cd rtpengine 
       
       
- # 2) Install the dependancies
+ ## 2) Install the dependancies
  
       apt install debhelper default-libmysqlclient-dev gperf iptables-dev libavcodec-dev libavfilter-dev libavformat-dev libavutil-dev libbencode-perl libcrypt-openssl-rsa-perl libcrypt-rijndael-perl libhiredis-dev libio-multiplex-perl libio-socket-inet6-perl libjson-glib-dev libdigest-crc-perl libdigest-hmac-perl libnet-interface-perl libnet-interface-perl libssl-dev libsystemd-dev libxmlrpc-core-c3-dev libcurl4-openssl-dev libevent-dev libpcap0.8-dev markdown unzip nfs-common dkms libspandsp-dev
       
       
-# 2) Get the G.729 library And Build it manually
+## 2) Get the G.729 library And Build it manually
 
       VER=1.0.4
 
@@ -51,7 +51,7 @@
       dpkg -i ngcp-rtpengine-daemon_*.deb ngcp-rtpengine-iptables_*.deb ngcp-rtpengine-kernel-dkms_*.deb 
     
     
- # Getting it Running
+ ## Getting it Running
 
 Now we’ve got RTPengine installed let’s setup the basics,
 
