@@ -43,4 +43,30 @@
       dpkg-buildpackage 
 
   
+  If that completed sucessfully in the directory above you should have a bunch of .deb files:
+  
+  
+      cd ../
+
+      dpkg -i ngcp-rtpengine-daemon_*.deb ngcp-rtpengine-iptables_*.deb ngcp-rtpengine-kernel-dkms_*.deb 
     
+    
+ # Getting it Running
+
+Now we’ve got RTPengine installed let’s setup the basics,
+
+There’s an example config file we’ll copy and edit:
+
+      mv /etc/rtpengine/rtpengine.sample.conf /etc/rtpengine/rtpengine.conf
+
+      vi /etc/rtpengine/rtpengine.conf
+      
+We’ll uncomment the interface line and set the IP to the IP we’ll be listening on:
+
+<img src="#" alt="conf image"/>
+
+Once we’ve set this to our IP we can start the service:
+
+      /etc/init.d/ngcp-rtpengine-daemon start
+      
+      
