@@ -63,7 +63,7 @@ There’s an example config file we’ll copy and edit:
       
 We’ll uncomment the interface line and set the IP to the IP we’ll be listening on:
 
-<img src="#" alt="conf image"/>
+<img src="images/rtpengine-Config-449x304.png" alt="conf image"/>
 
 Once we’ve set this to our IP we can start the service:
 
