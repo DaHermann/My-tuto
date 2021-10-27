@@ -9,4 +9,11 @@
       apt install ./lsb-release_10.2019051400_all.deb
       
       
-## 2) 
+## 2) Installing homer 7
+
+
+       cd /usr/src
+       wget https://github.com/sipcapture/homer-installer/raw/master/homer_installer.sh
+       chmod +x homer_installer.sh
+       ./homer_installer.sh
+
