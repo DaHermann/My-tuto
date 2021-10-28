@@ -31,6 +31,7 @@ Connectez vous en tant que root et install les packages requis pour l'installati
   * **Pour websocket** : `apt-get install libunistring-dev` and `apt install libwebsocketpp-dev`
 
 
+         apt install git-core gcc g++ flex bison default-libmysqlclient-dev make autoconf libssl-dev libcurl4-openssl-dev libxml2-dev libpcre3-dev unixodbc-dev libunistring-dev libwebsocketpp-dev
   
   
 ## Etape 1: MySQL ou MariaDB Server
