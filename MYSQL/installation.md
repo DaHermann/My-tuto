@@ -17,7 +17,6 @@ Then :
 Ready to install Mysql:
 
       dpkg -i mysql-apt-config*
-      
       apt update
       
       
