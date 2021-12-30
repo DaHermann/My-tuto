@@ -126,7 +126,6 @@
       apt install golang-go
    
    
-   
   ## Installation of Virtualbox
    
       apt install virtualbox
@@ -135,18 +134,37 @@
    
    
    
+   # Install Access Gateway on Ubuntu (Bare Metal)
+
+   
+   To install on server with DHCP configured SGi interface.
+   
+    su
+    wget https://raw.githubusercontent.com/magma/magma/v1.6/lte/gateway/deploy/agw_install_ubuntu.sh
+    bash agw_install_ubuntu.sh
+   
+   To Install on server with statically allocated SGi interface. Fow example: SGi has 1.1.1.1/24 IP and upstream router IP is 1.1.1.200
+   
+     su
+    wget https://raw.githubusercontent.com/magma/magma/v1.6/lte/gateway/deploy/agw_install_ubuntu.sh
+    bash agw_install_ubuntu.sh 1.1.1.1/24 1.1.1.200
    
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
+   The machine will reboot but It's not finished yet, the script is still running in the background. You can follow the output there
+
+        journalctl -fu agw_installation
+
+   When you see "AGW installation is done." It means that your AGW installation is done, you can make sure magma is running by executing:
+
+        service magma@* status
+
+   Post Install Check
+
+   Make sure you have control_proxy.yml file in directory /var/opt/magma/configs/ before running post install script.
+
+        bash /root/agw_post_install_ubuntu.sh
+
    
    
    
