@@ -27,8 +27,6 @@
       
    **Step #3: Configure the Environment**
    
-      apt install golang-go
-   
       echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
       echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
       echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n eval "$(pyenv init -)"\nfi' >> ~/.bashrc
@@ -47,8 +45,8 @@
       pyenv global 3.7.3
    
    
-     pip3 install ansible fabric3 jsonpickle requests PyYAML
-     vagrant plugin install vagrant-vbguest
+   ?: *pip3 install ansible fabric3 jsonpickle requests PyYAML
+   vagrant plugin install vagrant-vbguest*
 
 ## Installing Docker and Docker Compose on Ubuntu 18.04
 
@@ -123,7 +121,9 @@
    
    
    
+   ## Installation of Golang
    
+      apt install golang-go
    
    
    
