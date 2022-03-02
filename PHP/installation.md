@@ -1,18 +1,20 @@
+# Installation of php 8.1
 
-# First, update your Ubuntu server:
+
+## First, update your Ubuntu server:
 
 
      apt-get update && apt-get upgrade
      
 
-# Add the PHP repository
+## Add the PHP repository
 
 To install PHP 8.0 you’ll need to use a third-party repository. We’ll use the repository by Ondřej Surý that we previously used.
 First, make sure you have the following package installed so you can add repositories:
 
      apt-get install software-properties-common
      
-# Next, add the PHP repository from Ondřej:
+## Next, add the PHP repository from Ondřej:
 
      sudo add-apt-repository ppa:ondrej/php
      
@@ -20,7 +22,7 @@ And finally, update your package list:
 
      apt-get update
 
-# Install PHP 8.1
+## Install PHP 8.1
 
 After you’ve added the repository, you can install PHP 8.1 with the following command:
 
