@@ -27,6 +27,11 @@ Juste run these following commands solve the problem
    * unstall **locales**
 
           sudo apt-get purge locales
+          
+          
+  *  Update your reposi it 
+
+          sudo apt-get udate
 
    * then  reinstall it 
 
