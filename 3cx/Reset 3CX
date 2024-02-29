@@ -1,0 +1,7 @@
+#Reset 3CX On Linux#
+
+
+'''
+sudo /usr/sbin/3CXWizard --cleanup
+'''
+
