@@ -1,3 +1,4 @@
+'''
 const mongoose = require('mongoose');
 const uri = "mongodb+srv://user:Paswword@url/dbname";
 
@@ -12,3 +13,4 @@ const connectToDB = async () => {
     }
 }
 connectToDB();
+'''
