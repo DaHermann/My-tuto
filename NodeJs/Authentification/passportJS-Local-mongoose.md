@@ -40,6 +40,24 @@
     const LocalStrategy = require('passport-local').Strategy;
     const mongoose = require('mongoose');
     const User = require('./userModel');
+    const uri = "mongodb://username:password@localhost/myDB";
+
+
+        /**
+       * Database connection
+       */
+      
+      const connectToDB = async () => {
+          try {
+              await mongoose.connect(uri, {
+                  autoIndex: true
+              })
+              console.log('Connected to Mongodb Atlas');
+          } catch (error) {
+              console.error(error);
+          }
+      }
+      connectToDB();
 
 
 
@@ -63,7 +81,16 @@
     const {LogIn, LogOut, SingUp, GetSingUpPage, GetLoginPage}  =  require('./userControllers');
     
     
+    Router.get('/', GetLoginPage)
     Router.get('/singup', GetSingUpPage)
+    // Logout
+    Router.get('/logout', LogOut);
+
+    // Authentification d'un User
+    Router.post('/login',LogIn)
+    //Enregistrement de User
+    Router.post('/singup',SingUp)
+
     
 
 5- Configuration du controller.js
