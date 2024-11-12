@@ -10,7 +10,11 @@
 
 ### 1) As a regular user first the install NVM manager:
 
+    v:0.33
     wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash -
+    or
+    v:0.40
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
     
     
 ### 2) Update your shell environment:
