@@ -18,3 +18,8 @@
 * PgAdmin
 
            docker run --name pgadmin-container -p 5050:80 -e PGADMIN_DEFAULT_EMAIL=admin@db.com -e PGADMIN_DEFAULT_PASSWORD=admin@123 -d dpage/pgadmin4
+
+
+* Get an container ip adress
+
+      docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container-name
