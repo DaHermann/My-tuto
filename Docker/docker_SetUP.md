@@ -2,7 +2,6 @@
 The first step is to create a Dockerfile that specifies how to build your NestJS app into a Docker container. Here's a sample Dockerfile for a NestJS app:
 
 Dockerfile
-Copy code
 
 ```
   # Use an official Node.js runtime as a parent image
@@ -33,8 +32,6 @@ Copy code
 Next, you should add a .dockerignore file to prevent unnecessary files from being copied into the Docker image. Here's a basic .dockerignore for a NestJS project:
 
 ```
-plaintext
-Copy code
 node_modules
 dist
 *.log
@@ -43,8 +40,6 @@ dist
 # 3. Build Your Docker Image
 Navigate to your NestJS project’s root directory in your terminal, and then run the following Docker command to build the image:
 ```
-bash
-Copy code
 docker build -t my-nestjs-app .
 ```
 Replace my-nestjs-app with a name you prefer for your Docker image.
@@ -52,8 +47,6 @@ Replace my-nestjs-app with a name you prefer for your Docker image.
 # 4. Test Your Docker Image Locally
 Once the image is built, you can run it locally with the following command:
 ```
-bash
-Copy code
 docker run -p 3000:3000 my-nestjs-app
 ```
 This tells Docker to map port 3000 inside the container to port 3000 on your local machine. You can visit your app at http://localhost:3000 on your browser.
@@ -61,22 +54,16 @@ This tells Docker to map port 3000 inside the container to port 3000 on your loc
 # 5. Push Your Docker Image to a Public Repository (Docker Hub)
 To push your Docker image to a public repository like Docker Hub, you need to first log in to Docker Hub (or any other container registry you're using):
 ```
-bash
-Copy code
 docker login
 ```
 Then, tag your Docker image with your Docker Hub username and repository name. For example:
 ```
-bash
-Copy code
 docker tag my-nestjs-app yourusername/my-nestjs-app:latest
 ```
 
 Now, push the image to your public repository:
 
 ```
-bash
-Copy code
 docker push yourusername/my-nestjs-app:latest
 ```
 This will upload your Docker image to Docker Hub.
@@ -86,15 +73,11 @@ Once the image is pushed to the repository, you can pull it to any other machine
 
 First, pull the image:
 ```
-bash
-Copy code
 docker pull yourusername/my-nestjs-app:latest
 ```
 Then, run it:
 
 ```
-bash
-Copy code
 docker run -p 3000:3000 yourusername/my-nestjs-app:latest
 ```
 
@@ -104,49 +87,35 @@ Now, you can access your app by visiting http://localhost:3000.
 Summary of Commands:
 Build Docker image:
 ```
-bash
-Copy code
 docker build -t my-nestjs-app .
 ```
 Run Docker container locally:
 
 ```
-bash
-Copy code
 docker run -p 3000:3000 my-nestjs-app
 ```
 Login to Docker Hub:
 
 ```
-bash
-Copy code
 docker login
 ```
 Tag image:
 
 ```
-bash
-Copy code
 docker tag my-nestjs-app yourusername/my-nestjs-app:latest
 ```
 Push image to Docker Hub:
 
 ```
-bash
-Copy code
 docker push yourusername/my-nestjs-app:latest
 ```
 Pull image from Docker Hub (on any machine):
 ```
-bash
-Copy code
 docker pull yourusername/my-nestjs-app:latest
 ```
 Run pulled image locally:
 
 ```
-bash
-Copy code
 docker run -p 3000:3000 yourusername/my-nestjs-app:latest
 ```
 That’s it! Let me know if you need any further clarification.
