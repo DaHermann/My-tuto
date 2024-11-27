@@ -1,1 +1,3 @@
 #  @nestjs/config
+
+# cross-env
