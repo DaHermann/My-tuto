@@ -12,12 +12,11 @@ Help link : https://help.eset.com/esmc_install/70/fr-CA/odbc_configuration.html
 ## DEV DOCS
 
 ### DevDocsIO
-  `https://devdocs.io/ `
+  https://devdocs.io/
 
 ### WebDEV
-  `https://web.dev/?hl=fr`
+  https://web.dev/?hl=fr
 
 ### MDN
-
-`https://developer.mozilla.org/fr/`
+  https://developer.mozilla.org/fr/
 
