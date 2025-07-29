@@ -23,3 +23,8 @@ Help link : https://help.eset.com/esmc_install/70/fr-CA/odbc_configuration.html
 ### DEVELOPPEZ
 https://general.developpez.com/cours/
 
+### FONTS
+
+<a href="https://cdnjs.com/libraries/font-awesome">Font Awesome<a/>
+<a href="https://fonts.google.com/">Google fonts<a/>
+
